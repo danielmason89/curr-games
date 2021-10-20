@@ -32,8 +32,6 @@ const getCurrentMonth = () => {
   const lastYear = `${currentYear - 1}-${currentMonth}-${currentDay}`;
   const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`;
   
-
-  
   // Popular games
   const apiKey = process.env.REACT_APP_YOUR_API_KEY;
 
@@ -45,3 +43,11 @@ const getCurrentMonth = () => {
   export const upcomingGamesURL = () => `${baseUrl}${upcomingGames}`
   export const newGamesURL = () => `${baseUrl}${newGames}`
   
+  // Game Details
+  export const gameDetailsURL =  (gameId) => `${baseUrl}games/${gameId}.json?&key=${apiKey}`;
+  
+  // Game ScreenShots
+  export const gameScreenshotURL = (gameId) => `${baseUrl}games/${gameId}/screenshots?&.json?&key=${apiKey}`;
+
+  // Searched Game
+  export const searchGameURL = (gameName) => `${baseUrl}games?search=?${gameName}&pageSize=9?&key=${apiKey}`;
