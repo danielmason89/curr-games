@@ -1,4 +1,4 @@
-import {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 *{
@@ -25,13 +25,13 @@ body {
     width: 100%;
 }
 h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-family: 'Abril Fatface', cursive;
     font-weight: lighter;
     color: #c25353;
 }
 h2 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: 'Abril Fatface', cursive;
     font-weight: lighter;
     color: #c25353;
@@ -39,7 +39,7 @@ h2 {
 h3{
     font-size: 1.3rem;
     color: #4e4444;
-    padding: 1.5rem 0rem;
+    padding: 1rem 0rem;
 }
 p{
     font-size: 1.2rem;
