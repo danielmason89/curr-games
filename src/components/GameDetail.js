@@ -41,7 +41,6 @@ const GameDetail = ({ pathId }) => {
         return playstation;
       case "PlayStation 5":
         return playstation5Icon;
-
       case "Xbox One":
         return xboxOne;
       case "Xbox Series S/X":
