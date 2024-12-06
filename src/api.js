@@ -1,29 +1,17 @@
-import dotenv from "dotenv";
-
-dotenv.config();
-
 // Base URL
 const baseUrl = `https://api.rawg.io/api/`;
 
 // Getting date
 const getCurrentMonth = () => {
   const month = new Date().getMonth() + 1;
-  if (month < 10) {
-    return `0${month}`;
-  } else {
-    return month;
-  }
+  return month < 10 ? `0${month}` : month;
 };
 const getCurrentDay = () => {
   const day = new Date().getDate();
-  if (day < 10) {
-    return `0${day}`;
-  } else {
-    return day;
-  }
+  return day < 10 ? `0${day}` : day;
 };
 
-//   Date vars
+// Date vars
 const currentYear = new Date().getFullYear();
 const currentMonth = getCurrentMonth();
 const currentDay = getCurrentDay();
@@ -53,4 +41,4 @@ export const gameScreenshotURL = (gameId) =>
 
 // Searched Game
 export const searchGameURL = (gameName) =>
-  `${baseUrl}games?search=?${gameName}&pageSize=9?&key=${apiKey}`;
+  `${baseUrl}games?search=${gameName}&pageSize=9&key=${apiKey}`;
