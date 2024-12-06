@@ -28,12 +28,17 @@ const Home = () => {
   );
 
   return (
-    <GameList variants={fadeIn} initial="hidden" animate="show">
+    <GameList
+      variants={fadeIn}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <AnimateSharedLayout type="crossfade">
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           {pathId && <GameDetail pathId={pathId} />}
         </AnimatePresence>
-        {searched.length ? (
+        {searched.length > 0 && (
           <div className="searched">
             <h2>Games Searched</h2>
             <Games>
@@ -48,8 +53,6 @@ const Home = () => {
               ))}
             </Games>
           </div>
-        ) : (
-          ""
         )}
         <h2>Upcoming Games</h2>
         <Games>

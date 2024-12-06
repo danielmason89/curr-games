@@ -22,11 +22,12 @@ const Game = ({ name, released, image, id }) => {
       variants={popUp}
       initial="hidden"
       animate="show"
-      LayoutId={stringPathId}
+      exit="exit"
+      layoutId={stringPathId}
       onClick={loadDetailHandler}
     >
       <Link to={`/game/${id}`}>
-        <motion.h3 LayoutId={`title ${stringPathId}`}>{name}</motion.h3>
+        <motion.h3 layoutid={`title ${stringPathId}`}>{name}</motion.h3>
         <p>{released}</p>
         <motion.img
           LayoutId={`image ${stringPathId}`}
