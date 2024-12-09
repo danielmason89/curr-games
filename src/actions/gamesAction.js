@@ -1,31 +1,36 @@
 import axios from 'axios';
-import {popularGamesURL, upcomingGamesURL, newGamesURL, searchGameURL } from '../api';
+import {
+  popularGamesURL,
+  upcomingGamesURL,
+  newGamesURL,
+  searchGameURL,
+} from '../api';
 
 // Action Creator
 
+export const loadGames = () => async dispatch => {
+  // fetch axios
+  const popularData = await axios.get(popularGamesURL());
+  const newGamesData = await axios.get(newGamesURL());
+  const upcomingData = await axios.get(upcomingGamesURL());
 
-export const loadGames = () => async (dispatch) => {
-// fetch axios
-const popularData = await axios.get(popularGamesURL());
-const newGamesData = await axios.get(newGamesURL());
-const upcomingData = await axios.get(upcomingGamesURL());
-dispatch({
+  dispatch({
     type: 'FETCH_GAMES',
-payload: {
-    popular: popularData.data.results,
-    upcoming: upcomingData.data.results,
-    newGames: newGamesData.data.results,
-},
-});
+    payload: {
+      popular: popularData.data.results,
+      upcoming: upcomingData.data.results,
+      newGames: newGamesData.data.results,
+    },
+  });
 };
 
-export const fetchSearch = (gameName) => async(dispatch) => {
-    const searchGames = await axios.get(searchGameURL(gameName));
+export const fetchSearch = gameName => async dispatch => {
+  const searchGames = await axios.get(searchGameURL(gameName));
 
-    dispatch({
-        type: 'FETCH_SEARCHED',
-        payload:{
-            searched: searchGames.data.results
-        },
-    });
+  dispatch({
+    type: 'FETCH_SEARCHED',
+    payload: {
+      searched: searchGames.data.results,
+    },
+  });
 };
