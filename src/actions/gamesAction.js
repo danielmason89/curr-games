@@ -15,7 +15,7 @@ export const loadGames = () => async dispatch => {
   const upcomingData = await axios.get(upcomingGamesURL());
 
   const filterOutNSFWGames = games => {
-    const nsfwTags = ['nsfw', 'erotic', 'hentai', 'adult'];
+    const nsfwTags = ['nsfw', 'erotic', 'hentai'];
 
     return games.filter(
       game => !game.tags.some(tag => nsfwTags.includes(tag.name.toLowerCase()))
