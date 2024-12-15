@@ -7,67 +7,8 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { smallImage } from '../util';
 // Icons
-import {
-  FaXbox,
-  FaApple,
-  FaLinux,
-  FaGamepad,
-  FaWindows,
-  FaRegStar,
-  FaStar,
-  FaStarHalfAlt,
-} from 'react-icons/fa';
-import {
-  SiNintendo,
-  SiPlaystation,
-  SiPlaystation2,
-  SiPlaystation3,
-  SiPlaystation4,
-  SiPlaystation5,
-  SiPlaystationportable,
-  SiPlaystationvita,
-} from 'react-icons/si';
-import { IoLogoAndroid } from 'react-icons/io';
-
-// Maps Platforms to Icons
-const platformIconMap = {
-  pc: <FaWindows />,
-  linux: <FaLinux />,
-  playstation5: <SiPlaystation5 />,
-  playstation4: <SiPlaystation4 />,
-  playstation3: <SiPlaystation3 />,
-  playstation2: <SiPlaystation2 />,
-  playstation1: <SiPlaystation />,
-  'ps-vita': <SiPlaystationvita />,
-  psp: <SiPlaystationportable />,
-  'xbox-series-x': <FaXbox />,
-  'xbox-one': <FaXbox />,
-  xbox360: <FaXbox />,
-  'xbox-old': <FaXbox />,
-  'nintendo-switch': <SiNintendo />,
-  'nintendo-3ds': <SiNintendo />,
-  'nintendo-ds': <SiNintendo />,
-  'nintendo-wii-u': <SiNintendo />,
-  'wii-u': <SiNintendo />,
-  wii: <SiNintendo />,
-  gamecube: <SiNintendo />,
-  'nintendo-64': <SiNintendo />,
-  'game-boy': <SiNintendo />,
-  snes: <SiNintendo />,
-  nes: <SiNintendo />,
-  ios: <FaApple />,
-  macos: <FaApple />,
-  macintosh: <FaApple />,
-  'apple-ii': <FaApple />,
-  android: <IoLogoAndroid />,
-};
-
-// Gets the SVG icon with a fallback icon if the platform is not found in the map
-const PlatformIcon = ({ platformName, platformSlug }) => {
-  const icon = platformIconMap[platformSlug] ?? <FaGamepad />;
-
-  return <li aria-label={`Platform: ${platformName}`}>{icon}</li>;
-};
+import PlatformIcons from './PlatformIcons';
+import StarRating from './StarRating';
 
 const GameDetail = ({ pathId }) => {
   const navigate = useNavigate();
@@ -78,24 +19,6 @@ const GameDetail = ({ pathId }) => {
       document.body.style.overflow = 'auto';
       navigate('/');
     }
-  };
-
-  // Star Logic
-  const getStars = () => {
-    const stars = [];
-    const fullRating = Math.floor(game.rating);
-    const fractionalPart = game.rating - fullRating;
-
-    for (let i = 1; i <= 5; i++) {
-      if (i <= fullRating) {
-        stars.push(<FaStar key={i} />);
-      } else if (i === fullRating + 1 && fractionalPart >= 0.5) {
-        stars.push(<FaStarHalfAlt key={i} />);
-      } else {
-        stars.push(<FaRegStar key={i} />);
-      }
-    }
-    return stars;
   };
 
   // Data
@@ -110,27 +33,8 @@ const GameDetail = ({ pathId }) => {
                 <motion.h3 LayoutId={`title ${pathId}`}>{game.name}</motion.h3>
               </header>
               <Info>
-                <Stars>
-                  <div>
-                    <h3>Rating: {game.rating}</h3>
-                    <div className='star'>{getStars()}</div>
-                  </div>
-                </Stars>
-                <Platforms>
-                  <div>
-                    <h3>Platform</h3>
-                    <ul>
-                      {game.platforms &&
-                        game.platforms.map(data => (
-                          <PlatformIcon
-                            key={data.platform.id}
-                            platformName={data.platform.name}
-                            platformSlug={data.platform.slug}
-                          />
-                        ))}
-                    </ul>
-                  </div>
-                </Platforms>
+                <StarRating rating={game.rating} />
+                <PlatformIcons platforms={game.platforms} />
               </Info>
             </Stats>
             <Media>
@@ -244,73 +148,6 @@ const Info = styled(motion.div)`
   @media (max-width: 768px) {
     display: block;
     align-items: center;
-  }
-`;
-
-const Platforms = styled(motion.div)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-left: 4rem;
-  h3 {
-    font-size: 1.2rem;
-  }
-  img {
-    height: 5rem;
-    width: 3.75rem;
-    margin: 1rem 0.75rem;
-  }
-  ul {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    list-style: none;
-    flex-wrap: wrap;
-  }
-  ul > li > svg {
-    font-size: 3.75rem;
-    margin: 1rem 0.75rem;
-  }
-  @media (max-width: 768px) {
-    h3 {
-      font-size: 0.9rem;
-    }
-    img {
-      width: 3.25rem;
-      margin: 1rem 0.75rem;
-    }
-    ul > li > svg {
-      font-size: 3.25rem;
-    }
-    padding-left: 0rem;
-  }
-`;
-
-const Stars = styled(motion.div)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  h3 {
-    font-size: 1.2rem;
-  }
-  img {
-    margin: 1rem 0.75rem;
-  }
-  .star svg {
-    font-size: 1.75rem;
-  }
-  @media (max-width: 768px) {
-    h3 {
-      font-size: 1rem;
-    }
-    img {
-      width: 1.25rem;
-      margin: 1.3rem 0.75rem;
-    }
-    .star svg {
-      font-size: 1.25rem;
-    }
   }
 `;
 
