@@ -26,7 +26,6 @@
     "react-scripts": "^5.0.1",
     "redux": "^4.1.1",
     "redux-thunk": "^2.3.0",
-    "stars-rating": "^1.1.0",
     "styled-components": "^6.1.13",
     "web-vitals": "^1.1.2"
   },
