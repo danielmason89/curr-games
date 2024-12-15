@@ -14,12 +14,20 @@ export const loadGames = () => async dispatch => {
   const newGamesData = await axios.get(newGamesURL());
   const upcomingData = await axios.get(upcomingGamesURL());
 
+  const filterOutNSFWGames = games => {
+    const nsfwTags = ['nsfw', 'erotic', 'hentai'];
+
+    return games.filter(
+      game => !game.tags.some(tag => nsfwTags.includes(tag.name.toLowerCase()))
+    );
+  };
+
   dispatch({
     type: 'FETCH_GAMES',
     payload: {
-      popular: popularData.data.results,
-      upcoming: upcomingData.data.results,
-      newGames: newGamesData.data.results,
+      popular: filterOutNSFWGames(popularData.data.results),
+      upcoming: filterOutNSFWGames(upcomingData.data.results),
+      newGames: filterOutNSFWGames(newGamesData.data.results),
     },
   });
 };
