@@ -7,7 +7,16 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { smallImage } from '../util';
 // Icons
-import { FaXbox, FaApple, FaLinux, FaGamepad, FaWindows } from 'react-icons/fa';
+import {
+  FaXbox,
+  FaApple,
+  FaLinux,
+  FaGamepad,
+  FaWindows,
+  FaRegStar,
+  FaStar,
+  FaStarHalfAlt,
+} from 'react-icons/fa';
 import {
   SiNintendo,
   SiPlaystation,
@@ -19,10 +28,6 @@ import {
   SiPlaystationvita,
 } from 'react-icons/si';
 import { IoLogoAndroid } from 'react-icons/io';
-
-// Star Images
-import starFull from '../img/star-full.png';
-import starEmpty from '../img/star-empty.png';
 
 // Maps Platforms to Icons
 const platformIconMap = {
@@ -57,8 +62,8 @@ const platformIconMap = {
   android: <IoLogoAndroid />,
 };
 
+// Gets the SVG icon with a fallback icon if the platform is not found in the map
 const PlatformIcon = ({ platformName, platformSlug }) => {
-  // Gets the SVG icon with a fallback icon if the platform is not found in the map
   const icon = platformIconMap[platformSlug] ?? <FaGamepad />;
 
   return <li aria-label={`Platform: ${platformName}`}>{icon}</li>;
@@ -78,13 +83,16 @@ const GameDetail = ({ pathId }) => {
   // Star Logic
   const getStars = () => {
     const stars = [];
-    const rating = Math.floor(game.rating);
+    const fullRating = Math.floor(game.rating);
+    const fractionalPart = game.rating - fullRating;
 
     for (let i = 1; i <= 5; i++) {
-      if (i <= rating) {
-        stars.push(<img alt='star' key={i} src={starFull} />);
+      if (i <= fullRating) {
+        stars.push(<FaStar key={i} />);
+      } else if (i === fullRating + 1 && fractionalPart >= 0.5) {
+        stars.push(<FaStarHalfAlt key={i} />);
       } else {
-        stars.push(<img alt='star' key={i} src={starEmpty} />);
+        stars.push(<FaRegStar key={i} />);
       }
     }
     return stars;
@@ -289,6 +297,9 @@ const Stars = styled(motion.div)`
   img {
     margin: 1rem 0.75rem;
   }
+  .star svg {
+    font-size: 1.75rem;
+  }
   @media (max-width: 768px) {
     h3 {
       font-size: 1rem;
@@ -296,6 +307,9 @@ const Stars = styled(motion.div)`
     img {
       width: 1.25rem;
       margin: 1.3rem 0.75rem;
+    }
+    .star svg {
+      font-size: 1.25rem;
     }
   }
 `;
