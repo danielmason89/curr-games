@@ -2,7 +2,6 @@
 
 ### 🚀 About 🚀
 <p>An Avid Video Games Platform App</p>
-<br/>
 <p>An app created to help with keeping track of busy video games release schedule, and to search for upcoming, popular, new, and released video-game games, that you may have missed.</p>
 
 # Table of Contents
