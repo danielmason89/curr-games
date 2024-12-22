@@ -44,7 +44,7 @@ If you'd like to contribute, please fork the repository to make change and conta
 ### Our Contributors ✨
 
 <a href="https://github.com/mfts/papermark/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=mfts/papermark" />
+  <img src="" />
 </a>
 
 ## Credits
