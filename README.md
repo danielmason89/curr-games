@@ -7,40 +7,40 @@
 # Table of Contents
 
 
-## Getting Started - Curr🔥games
+# Getting Started - Curr🔥games
 
-## Installation
+# Installation
 
 First, clone this repository:
 
 <!-- start:code block -->
-# Clone this repository
+## Clone this repository
 git clone https://github.com/mfts/papermark.git
 cd papermark
 
-# Install dependencies
+## Install dependencies
 npm install
 
-# Copy the example .env file
+## Copy the example .env file
 cp .env.example .env
 
-# Run the app
+## Run the app
 npm run dev
 <!-- end:code block -->
 
-### Usage
+# Usage
 
-### Contributing
+# Contributing
 
 Curr🔥games is an open-source project and we welcome contributions from the community.
 
 If you'd like to contribute, please fork the repository to make change and contact us. As all Pull requests are warmly welcomed.
 
-### Our Contributors ✨
+# Our Contributors ✨
 
 <a href="https://github.com/mfts/papermark/graphs/contributors">
   <img src="" />
 </a>
 
-### Credits
+# Credits
 TBA
