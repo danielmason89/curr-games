@@ -1,119 +1,40 @@
-import React from "react";
+import React from 'react';
 // Styling and Animation
-import styled from "styled-components";
-import { motion } from "framer-motion";
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 // Redux
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { smallImage } from "../util";
-// Images
-import playstation from "../img/playstation.svg";
-import nintendo from "../img/nintendo.svg";
-import steam from "../img/steam.svg";
-import xbox from "../img/xbox.svg";
-import apple from "../img/apple.svg";
-import gamepad from "../img/gamepad.svg";
-import xboxOne from "../img/4375141_logo_xbox_icon.png";
-import playstation5Icon from "../img/7048152_playstation_ps5_icon.png";
-import android from "../img/icons8-android-64.png";
-import nintendods from "../img/icons8-nintendo-ds-50.png";
-import nintendodWiiU from "../img/icons8-nintendo-wii-u-30.png";
-
-// Star Images
-import starFull from "../img/star-full.png";
-import starEmpty from "../img/star-empty.png";
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { smallImage } from '../util';
+// Icons
+import PlatformIcons from './PlatformIcons';
+import StarRating from './StarRating';
 
 const GameDetail = ({ pathId }) => {
   const navigate = useNavigate();
   // Exit Detail
-  const exitDetailhandler = (e) => {
+  const exitDetailhandler = e => {
     const element = e.target;
-    if (element.classList.contains("shadow")) {
-      document.body.style.overflow = "auto";
-      navigate("/");
+    if (element.classList.contains('shadow')) {
+      document.body.style.overflow = 'auto';
+      navigate('/');
     }
-  };
-
-  // Get Platform Images
-  const getPlatform = (platform) => {
-    switch (platform) {
-      case "PlayStation 4":
-        return playstation;
-      case "PlayStation 5":
-        return playstation5Icon;
-      case "Xbox One":
-        return xboxOne;
-      case "Xbox Series S/X":
-        return xbox;
-      case "PC":
-        return steam;
-      case "Nintendo Switch":
-        return nintendo;
-      case "Android":
-        return android;
-      case "iOS":
-      case "macOS":
-        return apple;
-      case "Web":
-        return gamepad;
-      case "Nintendo DS":
-      case "Nintendo 3DS":
-        return nintendods;
-      case "Wii U":
-      case "Wii":
-        return nintendodWiiU;
-      default:
-      // return gamepad;
-    }
-  };
-
-  // Star Logic
-  const getStars = () => {
-    const stars = [];
-    const rating = Math.floor(game.rating);
-
-    for (let i = 1; i <= 5; i++) {
-      if (i <= rating) {
-        stars.push(<img alt="star" key={i} src={starFull} />);
-      } else {
-        stars.push(<img alt="star" key={i} src={starEmpty} />);
-      }
-    }
-    return stars;
   };
 
   // Data
-  const { screen, game, isLoading } = useSelector((state) => state.detail);
+  const { screen, game, isLoading } = useSelector(state => state.detail);
   return (
     <>
       {!isLoading && (
-        <CardShadow className="shadow" onClick={exitDetailhandler}>
+        <CardShadow className='shadow' onClick={exitDetailhandler}>
           <Detail LayoutId={pathId}>
             <Stats>
               <header>
                 <motion.h3 LayoutId={`title ${pathId}`}>{game.name}</motion.h3>
               </header>
               <Info>
-                <Stars>
-                  <div>
-                    <h3>Rating: {game.rating}</h3>
-                    <div className="star">{getStars()}</div>
-                  </div>
-                </Stars>
-                <Platforms>
-                  <div>
-                    <h3>Platform</h3>
-                    {game.platforms &&
-                      game.platforms.map((data) => (
-                        <img
-                          key={data.platform.id}
-                          src={getPlatform(data.platform.name)}
-                          title={data.platform.name}
-                          alt={data.platform.name}
-                        ></img>
-                      ))}
-                  </div>
-                </Platforms>
+                <StarRating rating={game.rating} />
+                <PlatformIcons platforms={game.platforms} />
               </Info>
             </Stats>
             <Media>
@@ -126,9 +47,9 @@ const GameDetail = ({ pathId }) => {
             <Description>
               <p>{game.description_raw}</p>
             </Description>
-            <div className="gallery">
+            <div className='gallery'>
               {screen.results &&
-                screen.results.map((screen) => (
+                screen.results.map(screen => (
                   <img
                     src={smallImage(screen.image, 1280)}
                     key={screen.id}
@@ -227,52 +148,6 @@ const Info = styled(motion.div)`
   @media (max-width: 768px) {
     display: block;
     align-items: center;
-  }
-`;
-
-const Platforms = styled(motion.div)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-left: 4rem;
-  h3 {
-    font-size: 1.2rem;
-  }
-  img {
-    height: 5rem;
-    width: 3.75rem;
-    margin: 1rem 0.75rem;
-  }
-  @media (max-width: 768px) {
-    h3 {
-      font-size: 0.9rem;
-    }
-    img {
-      width: 3.25rem;
-      margin: 1rem 0.75rem;
-    }
-    padding-left: 0rem;
-  }
-`;
-
-const Stars = styled(motion.div)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  h3 {
-    font-size: 1.2rem;
-  }
-  img {
-    margin: 1rem 0.75rem;
-  }
-  @media (max-width: 768px) {
-    h3 {
-      font-size: 1rem;
-    }
-    img {
-      width: 1.25rem;
-      margin: 1.3rem 0.75rem;
-    }
   }
 `;
 
