@@ -1,13 +1,11 @@
 # Curr🔥games - In progress
 
-## About
+### 🚀 About
 ### An Avid Video Games Platform App
 ### An app created to help with keeping track of busy video games release schedule, and to search for upcoming, popular, new, and released video-game games, that you may have missed.
 
 # Table of Contents
 
-
-## 🚀 About
 
 ## Getting Started - Curr🔥games
 
@@ -30,9 +28,9 @@ cp .env.example .env
 npm run dev
 <!-- end:code block -->
 
-## Usage
+### Usage
 
-## Contributing
+### Contributing
 
 Curr🔥games is an open-source project and we welcome contributions from the community.
 
@@ -44,5 +42,5 @@ If you'd like to contribute, please fork the repository to make change and conta
   <img src="" />
 </a>
 
-## Credits
+### Credits
 TBA
