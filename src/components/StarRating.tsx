@@ -3,7 +3,11 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { FaRegStar, FaStar, FaStarHalfAlt } from 'react-icons/fa';
 
-const StarRating = ({ rating }) => {
+interface StarRatingProps {
+  rating: number;
+}
+
+const StarRating = ({ rating }: StarRatingProps) => {
   const getStars = () => {
     const stars = [];
     const fullRating = Math.floor(rating);
@@ -23,37 +27,48 @@ const StarRating = ({ rating }) => {
 
   return (
     <StyledStars>
-      <div>
-        <h3>Rating: {rating}</h3>
-        <div className='star'>{getStars()}</div>
-      </div>
+      <h3>Rating ({rating.toFixed(1)})</h3>
+      <div className='stars'>{getStars()}</div>
     </StyledStars>
   );
 };
 
 const StyledStars = styled(motion.div)`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 0.25rem;
+  width: 100%;
+
   h3 {
-    font-size: 1.2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
   }
-  img {
-    margin: 1rem 0.75rem;
+
+  .stars {
+    display: flex;
+    gap: 0.25rem;
+
+    svg {
+      font-size: 1.5rem;
+      color: #ffd700;
+    }
   }
-  .star svg {
-    font-size: 1.75rem;
-  }
-  @media (max-width: 768px) {
+
+  @media (min-width: 1024px) {
     h3 {
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
-    img {
-      width: 1.25rem;
-      margin: 1.3rem 0.75rem;
+    .stars svg {
+      font-size: 1.75rem;
     }
-    .star svg {
-      font-size: 1.25rem;
+  }
+
+  @media (max-width: 768px) {
+    .stars svg {
+      font-size: 1.35rem;
     }
   }
 `;

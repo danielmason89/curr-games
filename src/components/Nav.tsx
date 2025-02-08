@@ -1,27 +1,27 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import { motion } from "framer-motion";
-import logo from "../img/logo.svg";
-import { fadeIn } from "../animations";
-import { fetchSearch } from "../actions/gamesAction";
-import { useDispatch } from "react-redux";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import logo from '../img/logo.svg';
+import { fadeIn } from '../animations';
+import { fetchSearch } from '../actions/gamesAction';
+import { useDispatch } from 'react-redux';
 
 const Nav = () => {
   const dispatch = useDispatch();
-  const [textInput, setTextInput] = useState("");
+  const [textInput, setTextInput] = useState('');
 
-  const inputHandler = (e) => {
+  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTextInput(e.target.value);
   };
 
-  const submitSearch = (e) => {
+  const submitSearch = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     dispatch(fetchSearch(textInput));
-    setTextInput("");
+    setTextInput('');
   };
 
   const clearSearched = () => {
-    dispatch({ type: "CLEAR_SEARCHED" });
+    dispatch({ type: 'CLEAR_SEARCHED' });
   };
 
   return (
@@ -30,26 +30,24 @@ const Nav = () => {
       initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+      transition={{ duration: 0.5 }}>
       <Logo
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.8, opacity: 0 }}
-        transition={{ duration: 0.5 }}
-      >
+        transition={{ duration: 0.5 }}>
         <h1>Curr</h1>
-        <img src={logo} alt="logo" />
+        <img src={logo} alt='logo' />
         <h1>Games</h1>
       </Logo>
       <h2>your platform to find the most curr games.</h2>
-      <form className="search">
-        <input value={textInput} onChange={inputHandler} type="text" />
-        <div className="buttons">
-          <button onClick={submitSearch} type="submit" id="button1">
+      <form className='search'>
+        <input value={textInput} onChange={inputHandler} type='text' />
+        <div className='buttons'>
+          <button onClick={submitSearch} type='submit' id='button1'>
             Search
           </button>
-          <button onClick={clearSearched} type="submit" id="button2">
+          <button onClick={clearSearched} type='submit' id='button2'>
             Clear
           </button>
         </div>

@@ -1,30 +1,32 @@
-import React, { useEffect } from "react";
-import GameDetail from "../components/GameDetail";
+import React, { useEffect } from 'react';
+import GameDetail from '../components/GameDetail';
 // Redux
-import { useDispatch, useSelector } from "react-redux";
-import { loadGames } from "../actions/gamesAction";
+import { loadGames } from '../actions/gamesAction';
 // Styling and Animation
-import styled from "styled-components";
-import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
-import { fadeIn } from "../animations";
+import styled from 'styled-components';
+import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion';
+import { fadeIn } from '../animations';
 // Components
-import Game from "../components/Game";
-import { useLocation } from "react-router-dom";
+import Game from '../components/Game';
+import { useLocation } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../hooks/redux';
+import type { Game as GameType } from '../types/game';
 
 const Home = () => {
   // Get the current location of the game
   const location = useLocation();
-  const pathId = location.pathname.split("/")[2];
+  const pathId = location.pathname.split('/')[2];
+
   // Fetch Games
-  const dispatch = useDispatch();
-  // const popular = useSelector((state) => state);
-  // console.log({popular})
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
     dispatch(loadGames());
   }, [dispatch]);
+
   // Get that data back
-  const { popular, newGames, upcoming, searched } = useSelector(
-    (state) => state.games
+  const { popular, newGames, upcoming, searched } = useAppSelector(
+    state => state.games
   );
 
   return (
@@ -32,17 +34,20 @@ const Home = () => {
       variants={fadeIn}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      <AnimateSharedLayout type="crossfade">
-        <AnimatePresence mode="wait">
-          {pathId && <GameDetail pathId={pathId} />}
+      exit={{ opacity: 0 }}>
+      <AnimateSharedLayout type='crossfade'>
+        <AnimatePresence
+          initial={false}
+          mode='wait'
+          onExitComplete={() => null}>
+          {pathId ? <GameDetail pathId={pathId} /> : null}
         </AnimatePresence>
+
         {searched.length > 0 && (
-          <div className="searched">
+          <div className='searched'>
             <h2>Games Searched</h2>
             <Games>
-              {searched.map((game) => (
+              {searched.map((game: GameType) => (
                 <Game
                   name={game.name}
                   released={game.released}
@@ -56,7 +61,7 @@ const Home = () => {
         )}
         <h2>Upcoming Games</h2>
         <Games>
-          {upcoming.map((game) => (
+          {upcoming.map((game: GameType) => (
             <Game
               name={game.name}
               released={game.released}
@@ -68,7 +73,7 @@ const Home = () => {
         </Games>
         <h2>Popular Games</h2>
         <Games>
-          {popular.map((game) => (
+          {popular.map((game: GameType) => (
             <Game
               name={game.name}
               released={game.released}
@@ -80,7 +85,7 @@ const Home = () => {
         </Games>
         <h2>New Games</h2>
         <Games>
-          {newGames.map((game) => (
+          {newGames.map((game: GameType) => (
             <Game
               name={game.name}
               released={game.released}
