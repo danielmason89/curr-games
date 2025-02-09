@@ -1,3 +1,5 @@
+import type { Game } from './types/game';
+
 // Base URL
 const baseUrl = `https://api.rawg.io/api/`;
 
@@ -32,13 +34,13 @@ export const upcomingGamesURL = () => `${baseUrl}${upcomingGames}`;
 export const newGamesURL = () => `${baseUrl}${newGames}`;
 
 // Game Details
-export const gameDetailsURL = (gameId) =>
+export const gameDetailsURL = (gameId: Game['id']) =>
   `${baseUrl}games/${gameId}.json?&key=${apiKey}`;
 
 // Game ScreenShots
-export const gameScreenshotURL = (gameId) =>
+export const gameScreenshotURL = (gameId: Game['id']) =>
   `${baseUrl}games/${gameId}/screenshots?&.json?&key=${apiKey}`;
 
 // Searched Game
-export const searchGameURL = (gameName) =>
+export const searchGameURL = (gameName: Game['name']) =>
   `${baseUrl}games?search=${gameName}&pageSize=9&key=${apiKey}`;
