@@ -38,7 +38,7 @@ If you'd like to contribute, please fork the repository to make change and conta
 
 # Our Contributors ✨
 
-<a href="https://github.com/mfts/papermark/graphs/contributors">
+<a href="[https://github.com/mfts/papermark/graphs/contributors](https://github.com/danielmason89/curr-games.git)">
   <img src="" />
 </a>
 
