@@ -208,11 +208,11 @@ You can also simply open an issue with the tag "enhancement".
 [Vercel-url]: https://vercel.com/
 [TypeScript]: https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff
 [TypeScript-url]: https://www.typescriptlang.org/
-![React Router](https://img.shields.io/badge/React%20Router-CA4245?logo=reactrouter&logoColor=fff&style=flat)
+[React Router](https://img.shields.io/badge/React%20Router-CA4245?logo=reactrouter&logoColor=fff&style=flat)
 [ReactRouter-url]: https://reactrouter.com/routers/home
-![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=fff&style=flat)
+[Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=fff&style=flat)
 [Vite-url]: https://vite.dev/
-![Motion](https://img.shields.io/badge/Framer-05F?logo=framer&logoColor=fff&style=flat)
+[Motion](https://img.shields.io/badge/Framer-05F?logo=framer&logoColor=fff&style=flat)
 [Motion-url]: https://motion.dev/
 
 # Credits
