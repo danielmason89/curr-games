@@ -162,10 +162,10 @@ You can also simply open an issue with the tag "enhancement".
 
 <div>
   <p>Daniel Mason</p>
-  <img src="![image](https://avatars.githubusercontent.com/u/77700361?v=4)
+  <img src="[image](https://avatars.githubusercontent.com/u/77700361?v=4)
 " />
   <p>Lucas Winkler</p>
-  <img src="![image](https://avatars.githubusercontent.com/u/43054519?v=4)
+  <img src="[image](https://avatars.githubusercontent.com/u/43054519?v=4)
 " />
 </div>
 
