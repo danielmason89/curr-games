@@ -19,6 +19,49 @@
   </p>
 </div>
 
+<!--
+*** Thanks for checking out the Best-README-Template. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Don't forget to give the project a star!
+*** Thanks again! Now go create something AMAZING! :D
+-->
+
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+<div align="center">
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+</div>
+
+## 🚀 About the Project 🚀
+
+[![Product Name Screen Shot][product-screenshot]](https://curr-games.netlify.app/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Built With
+
+[![React][React.js]][React-url]
+[![React Router][React Router]][ReactRouter-url]
+[![Motion][Motion]][Motion-url]
+[![TypeScript][TypeScript]][TypeScript-url]
+[![Vite][Vite]][Vite-url]
+[![Redux][Redux]][Redux-url]
+[![Axios][Axios]][Axios-url]
+[![Netlify][Netlify]][Netlify-url]
+
+## Table of Contents
+
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -42,48 +85,6 @@
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
-
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
-
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-## 🚀 About the Project 🚀
-
-[![Product Name Screen Shot][product-screenshot]](https://curr-games.netlify.app/)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## Built With
-
-- [![React][React.js]][React-url]
-- [![React Router][React Router]][ReactRouter-url]
-- [![Motion][Motion]][Motion-url]
-- [![TypeScript][TypeScript]][TypeScript-url]
-- [![Vite][Vite]][Vite-url]
-- [![Redux][Redux]][Redux-url]
-- [![Axios][Axios]][Axios-url]
-- [![Netlify][Netlify]][Netlify-url]
-
-## Table of Contents
 
 
 ### Getting Started - Curr🔥games
