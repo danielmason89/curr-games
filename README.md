@@ -45,14 +45,14 @@
 
 ## Built With
 
-[![React][React.js]][React-url]
-[![React Router][React Router]][ReactRouter-url]
-[![Motion][Motion]][Motion-url]
-[![TypeScript][TypeScript]][TypeScript-url]
-[![Vite][Vite]][Vite-url]
-[![Redux][Redux]][Redux-url]
-[![Axios][Axios]][Axios-url]
-[![Netlify][Netlify]][Netlify-url]
+- [![React][React.js]][React-url]
+- [![ReactRouter][ReactRouter]][ReactRouter-url]
+- [![Motion][Motion]][Motion-url]
+- [![TypeScript][TypeScript]][TypeScript-url]
+- [![Vite][Vite]][Vite-url]
+- [![Redux][Redux]][Redux-url]
+- [![Axios][Axios]][Axios-url]
+- [![Netlify][Netlify]][Netlify-url]
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
