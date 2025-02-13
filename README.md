@@ -86,20 +86,17 @@
   </ol>
 </details>
 
-
-### Getting Started - Curr🔥games
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 <!-- GETTING STARTED -->
 
-## Getting Started
+## Getting Started - Curr🔥games
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Prerequisites
 
 - Node.js 18+ and npm
 
-### Installation
+### Installation - Part 1
 
 1. Clone the repo
    ```sh
@@ -121,7 +118,7 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Installation
+## Installation - Part 2
 
 First, clone this repository:
 
@@ -141,6 +138,8 @@ npm run dev
 <!-- end:code block -->
 
 ## Usage
+
+<!-- CONTRIBUTING -->
 
 ## Contributing
 
