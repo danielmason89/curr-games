@@ -4,9 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "nodemon -w src/server -x tsx src/server/main.ts",
-    "start": "cross-env NODE_ENV=production tsx src/server/main.ts",
-    "build": "vite build"
+    "backend-dev": "nodemon -w src/server -x tsx src/server/main.ts",
+    "backend-start": "cross-env NODE_ENV=production tsx src/server/main.ts",
+    "build": "vite build",
+    "frontend-dev": "vite",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@t3-oss/env-core": "^0.12.0",
