@@ -38,7 +38,6 @@
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -65,7 +64,6 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 ## 🚀 About the Project 🚀
@@ -77,6 +75,7 @@
 ## Built With
 
 - [![React][React.js]][React-url]
+- [![React Router][React Router]][ReactRouter-url]
 - [![Motion][Motion]][Motion-url]
 - [![TypeScript][TypeScript]][TypeScript-url]
 - [![Vite][Vite]][Vite-url]
@@ -200,7 +199,7 @@ You can also simply open an issue with the tag "enhancement".
 [license-shield]: https://img.shields.io/github/license/lucaswinkler/poitogo.svg?style=for-the-badge
 [license-url]: https://github.com/lucaswinkler/poitogo/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/lucas-winkler
+[linkedin-url]: https://www.linkedin.com/in/daniel-mason-dev/
 [product-screenshot]: images/screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
@@ -209,6 +208,12 @@ You can also simply open an issue with the tag "enhancement".
 [Vercel-url]: https://vercel.com/
 [TypeScript]: https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff
 [TypeScript-url]: https://www.typescriptlang.org/
+![React Router](https://img.shields.io/badge/React%20Router-CA4245?logo=reactrouter&logoColor=fff&style=flat)
+[ReactRouter-url]: https://reactrouter.com/routers/home
+![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=fff&style=flat)
+[Vite-url]: https://vite.dev/
+![Motion](https://img.shields.io/badge/Framer-05F?logo=framer&logoColor=fff&style=flat)
+[Motion-url]: https://motion.dev/
 
 # Credits
 TBA
