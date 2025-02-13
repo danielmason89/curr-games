@@ -46,7 +46,7 @@
 ## Built With
 
 - [![React][React.js]][React-url]
-- [![ReactRouter][ReactRouter]][ReactRouter-url]
+- [![ReactRouter]][ReactRouter-url]
 - [![Motion][Motion]][Motion-url]
 - [![TypeScript][TypeScript]][TypeScript-url]
 - [![Vite][Vite]][Vite-url]
