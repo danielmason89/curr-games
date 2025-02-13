@@ -7,8 +7,7 @@ const platformSchema = z.object({
   slug: z.string(),
 });
 
-// For games list endpoint
-const platformListSchema = z.object({
+const platformDetailSchema = z.object({
   platform: platformSchema,
   released_at: z.string().nullable(),
   requirements: z
@@ -49,7 +48,12 @@ const ratingSchema = z.object({
   percent: z.number(),
 });
 
-// Schema for games list endpoint
+const metacriticPlatformSchema = z.object({
+  metascore: z.number(),
+  url: z.string(),
+});
+
+// Base game schema (for list endpoint)
 export const gameSchema = z
   .object({
     id: z.number(),
@@ -62,18 +66,19 @@ export const gameSchema = z
     rating_top: z.number(),
     ratings: z.array(ratingSchema),
     ratings_count: z.number(),
-    reviews_text_count: z.number(),
+    reviews_text_count: z.coerce.number(),
     added: z.number(),
-    added_by_status: z.record(z.string(), z.number()).optional(),
+    added_by_status: z.record(z.string(), z.number()),
     metacritic: z.number().nullable(),
     playtime: z.number(),
     suggestions_count: z.number(),
     updated: z.string(),
     esrb_rating: esrbRatingSchema,
-    platforms: z.array(platformListSchema).nullable(), // Use platformListSchema here
+    platforms: z.array(platformDetailSchema).nullable(),
   })
   .partial();
 
+// Response schema for games list
 export const gamesResponseSchema = z.object({
   count: z.number(),
   next: z.string().nullable(),
@@ -81,37 +86,32 @@ export const gamesResponseSchema = z.object({
   results: z.array(gameSchema),
 });
 
-// Schema for game details endpoint
+// Extended schema for game details endpoint
 export const gameDetailsSchema = gameSchema
   .extend({
-    name_original: z.string().min(1),
-    description: z.string().min(1),
-    metacritic_platforms: z.array(
-      z.object({
-        metascore: z.number(),
-        url: z.string().min(1),
-      })
-    ),
+    name_original: z.string(),
+    description: z.string(),
+    metacritic_platforms: z.array(metacriticPlatformSchema),
     background_image_additional: z.string().nullable(),
-    website: z.string().min(1),
+    website: z.string(),
     reactions: z.record(z.string(), z.unknown()),
     screenshots_count: z.number(),
     movies_count: z.number(),
     creators_count: z.number(),
     achievements_count: z.number(),
-    parent_achievements_count: z.number(),
-    reddit_url: z.string().min(1),
+    parent_achievements_count: z.coerce.number(),
+    reddit_url: z.string(),
     reddit_name: z.string().nullable(),
     reddit_description: z.string().nullable(),
     reddit_logo: z.string().nullable(),
     reddit_count: z.number(),
-    twitch_count: z.number(),
-    youtube_count: z.number(),
-    reviews_text_count: z.number(),
+    twitch_count: z.coerce.number(),
+    youtube_count: z.coerce.number(),
+    reviews_text_count: z.coerce.number(),
     ratings_count: z.number(),
     suggestions_count: z.number(),
     alternative_names: z.array(z.string()),
-    metacritic_url: z.string().min(1),
+    metacritic_url: z.string(),
     parents_count: z.number(),
     additions_count: z.number(),
     game_series_count: z.number(),
