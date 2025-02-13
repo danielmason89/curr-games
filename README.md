@@ -74,7 +74,7 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Built With
+## Built With
 
 - [![React][React.js]][React-url]
 - [![Motion][Motion]][Motion-url]
@@ -84,10 +84,10 @@
 - [![Axios][Axios]][Axios-url]
 - [![Netlify][Netlify]][Netlify-url]
 
-# Table of Contents
+## Table of Contents
 
 
-## Getting Started - Curr🔥games
+### Getting Started - Curr🔥games
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -121,26 +121,26 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# Installation
+## Installation
 
 First, clone this repository:
 
 <!-- start:code block -->
-## Clone this repository
+### Clone this repository
 git clone [https://github.com/danielmason89/curr-games.git](https://github.com/danielmason89/curr-games.git)
 cd papermark
 
-## Install dependencies
+### Install dependencies
 npm install
 
-## Copy the example .env file
+### Copy the example .env file
 cp .env.example .env
 
-## Run the app
+### Run the app
 npm run dev
 <!-- end:code block -->
 
-# Usage
+## Usage
 
 ## Contributing
 
