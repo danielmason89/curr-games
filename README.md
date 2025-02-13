@@ -183,6 +183,7 @@ You can also simply open an issue with the tag "enhancement".
 - [Redux](https://redux.js.org/)
 - [Styled Components](https://styled-components.com/)
 - [Vite](https://vite.dev/)
+- [Netlify](https://www.netlify.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -223,3 +224,5 @@ You can also simply open an issue with the tag "enhancement".
 [Axios-url]: https://axios-http.com/
 [Styled Components]: https://img.shields.io/badge/styled--components-DB7093?logo=styledcomponents&logoColor=fff&style=flat
 [Styled Components-url]: https://styled-components.com/
+[Netlify]: Netlifyhttps://img.shields.io/badge/Netlify-00C7B7?logo=netlify&logoColor=fff&style=flat
+[Netlify-url]: https://www.netlify.com/
