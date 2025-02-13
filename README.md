@@ -37,12 +37,6 @@
   </p>
 </div>
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 ## 🚀 About the Project 🚀
 
 [![Product Name Screen Shot][product-screenshot]](https://curr-games.netlify.app/)
@@ -51,14 +45,20 @@
 
 ## Built With
 
-[![React][React.js]][React-url]
-[![React Router][React Router]][ReactRouter-url]
-[![Motion][Motion]][Motion-url]
-[![TypeScript][TypeScript]][TypeScript-url]
-[![Vite][Vite]][Vite-url]
-[![Redux][Redux]][Redux-url]
-[![Axios][Axios]][Axios-url]
-[![Netlify][Netlify]][Netlify-url]
+- [![React][React.js]][React-url]
+- [![React Router][React Router]][ReactRouter-url]
+- [![Motion][Motion]][Motion-url]
+- [![TypeScript][TypeScript]][TypeScript-url]
+- [![Vite][Vite]][Vite-url]
+- [![Redux][Redux]][Redux-url]
+- [![Axios][Axios]][Axios-url]
+- [![Netlify][Netlify]][Netlify-url]
+
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
 ## Table of Contents
 
@@ -159,7 +159,7 @@ You can also simply open an issue with the tag "enhancement".
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# Our Contributors ✨
+## Our Contributors ✨
 
 <div>
   <p>Daniel Mason</p>
