@@ -91,14 +91,11 @@
 
 ## Getting Started - Curr🔥games
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-### Prerequisites
+<h3>Prerequisites</h3>
 
 - Node.js 18+ and npm
 
 ### Installation - Part 1
-
 1. Clone the repo
    ```sh
    git clone https://github.com/danielmason89/curr-games.git
@@ -117,10 +114,8 @@
 
 5. Open [http://localhost:5174](http://localhost:5174) to view it in the browser.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+<br/>
 ### Installation - Part 2
-
 First, clone this repository:
 
 <!-- start:code block -->
@@ -138,7 +133,7 @@ cp .env.example .env
 npm run dev
 <!-- end:code block -->
 
-## Usage
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 
@@ -163,8 +158,7 @@ You can also simply open an issue with the tag "enhancement".
 
 <div>
   <p>Daniel Mason</p>
-  <img src="[image](https://avatars.githubusercontent.com/u/77700361?v=4)
-" />
+  <img src="https://avatars.githubusercontent.com/u/77700361?v=4" />
   <p>Lucas Winkler</p>
   <img src="[image](https://avatars.githubusercontent.com/u/43054519?v=4)
 " />
