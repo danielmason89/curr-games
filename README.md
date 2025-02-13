@@ -2,23 +2,6 @@
 
 <a id="readme-top"></a>
 
-<br/>
-<h1 align="center">Curr🔥games</h1>
-
-  <div align="center">
-    <p>An Avid Video Games Platform App</p>
-    <p>An app created to help with keeping track of busy video games release schedule, and to search for upcoming, popular, new, and released video-game games, that you may have missed.  
-    </div>
-    <br />
-    <br />
-    <a href="https://curr-games.netlify.app/">View Live</a>
-    &middot;
-    <a href="https://github.com/danielmason89/curr-games/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-    &middot;
-    <a href="https://github.com/danielmason89/curr-games/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
-  </p>
-</div>
-
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
@@ -35,13 +18,30 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+
+<br />
 <div align="center">
+<h1 align="center">Curr🔥games</h1>
+
+  <div align="center">
+    <p>An Avid Video Games Platform App</p>
+    <p>An app created to help with keeping track of busy video games release schedule, and to search for upcoming, popular, new, and released video-game games, that you may have missed.  
+    </div>
+    <br />
+    <br />
+    <a href="https://curr-games.netlify.app/">View Live</a>
+    &middot;
+    <a href="https://github.com/danielmason89/curr-games/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    &middot;
+    <a href="https://github.com/danielmason89/curr-games/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+  </p>
+</div>
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-</div>
 
 ## 🚀 About the Project 🚀
 
