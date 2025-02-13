@@ -15,7 +15,7 @@ First, clone this repository:
 
 <!-- start:code block -->
 ## Clone this repository
-git clone https://github.com/mfts/papermark.git
+git clone [https://github.com/danielmason89/curr-games.git](https://github.com/danielmason89/curr-games.git)
 cd papermark
 
 ## Install dependencies
