@@ -1,14 +1,8 @@
-import { z } from 'zod';
 import catchErrors from '@/server/utils/catchErrors.js';
 import { BAD_REQUEST, OK } from '@/server/constants/http.js';
 import * as gamesService from '@/server/services/games.service.js';
 import logger from '@/server/config/logger.js';
-
-const paramsSchema = z.object({
-  id: z.coerce.number().int().positive({
-    message: 'ID must be a positive integer',
-  }),
-});
+import { gameParamsSchema } from '@/shared/schemas.js';
 
 export const getGames = catchErrors(async (req, res) => {
   logger.info('Processing games request');
@@ -17,7 +11,7 @@ export const getGames = catchErrors(async (req, res) => {
 });
 
 export const getGameById = catchErrors(async (req, res) => {
-  const result = paramsSchema.safeParse(req.params);
+  const result = gameParamsSchema.safeParse(req.params);
   if (!result.success) {
     logger.error('Invalid game ID parameter', {
       params: req.params,
