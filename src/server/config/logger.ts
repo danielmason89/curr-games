@@ -4,11 +4,11 @@ import { env } from '@/env.js';
 const { combine, timestamp, errors, splat, json, printf, colorize } = format;
 const timestampFormat = 'YYYY-MM-DD hh:mm:ss A';
 
-const errorFilter = format((info, opts) => {
+const errorFilter = format(info => {
   return info.level === 'error' ? info : false;
 });
 
-const infoFilter = format((info, opts) => {
+const infoFilter = format(info => {
   return info.level === 'info' ? info : false;
 });
 

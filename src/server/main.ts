@@ -11,28 +11,32 @@ import notFoundHandler from './middleware/notFoundHandler.js';
 import { limiter } from '@/server/lib/rateLimit.js';
 
 const app = express();
-
 logger.info(`Initializing server in the ${env.NODE_ENV} environment.`);
 
-app.use(requestLogger);
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(
+// API-specific middleware
+const apiRouter = express.Router();
+apiRouter.use(requestLogger);
+apiRouter.use(express.json());
+apiRouter.use(express.urlencoded({ extended: true }));
+apiRouter.use(
   cors({
     origin: env.APP_ORIGIN,
     credentials: true,
   })
 );
-app.use(cookieParser());
+apiRouter.use(cookieParser());
+apiRouter.use(limiter);
+apiRouter.use('/', routes);
+
+// Mount API routes with its error handlers
+app.use('/api', apiRouter);
+app.use('/api', notFoundHandler);
+app.use('/api', errorHandler);
+logger.info('API routes and error handling initialized.');
+
+// Static/client middleware - should be after API routes
 app.use(ViteExpress.static());
-logger.info('Middleware initialized.');
-
-app.use('/api', limiter, routes);
-logger.info('Routes initialized.');
-
-app.use(notFoundHandler);
-app.use(errorHandler);
-logger.info('Error handling initialized.');
+logger.info('Static middleware initialized.');
 
 ViteExpress.listen(app, env.PORT, () =>
   logger.info(

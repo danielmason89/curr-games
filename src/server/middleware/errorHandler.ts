@@ -33,9 +33,8 @@ const handleAppError = (res: Response, error: AppError) => {
  * @param error - Error object
  * @param req - Express request object
  * @param res - Express response object
- * @param next - Express next function
  */
-const errorHandler: ErrorRequestHandler = (error, req, res, next) => {
+const errorHandler: ErrorRequestHandler = (error, req, res) => {
   const statusCode = error.statusCode ?? INTERNAL_SERVER_ERROR;
   const message = error.message ?? 'Internal server error';
 
