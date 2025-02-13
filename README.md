@@ -45,24 +45,20 @@
 
 ## Built With
 
-<p align="center">
-  [![React][React.js]][React-url]
-  [![React Router][React Router]][ReactRouter-url]
-  [![Motion][Motion]][Motion-url]
-  [![TypeScript][TypeScript]][TypeScript-url]
-  [![Vite][Vite]][Vite-url]
-  [![Redux][Redux]][Redux-url]
-  [![Axios][Axios]][Axios-url]
-  [![Netlify][Netlify]][Netlify-url]
-</p>
+[![React][React.js]][React-url]
+[![React Router][React Router]][ReactRouter-url]
+[![Motion][Motion]][Motion-url]
+[![TypeScript][TypeScript]][TypeScript-url]
+[![Vite][Vite]][Vite-url]
+[![Redux][Redux]][Redux-url]
+[![Axios][Axios]][Axios-url]
+[![Netlify][Netlify]][Netlify-url]
 
-<p align="center">
-  [![Contributors][contributors-shield]][contributors-url]
-  [![Forks][forks-shield]][forks-url]
-  [![Stargazers][stars-shield]][stars-url]
-  [![Issues][issues-shield]][issues-url]
-  [![LinkedIn][linkedin-shield]][linkedin-url]
-</p>
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
 ## Table of Contents
 
