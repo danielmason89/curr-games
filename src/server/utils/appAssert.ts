@@ -5,7 +5,7 @@ import AppErrorCode from '@/server/constants/appErrorCode.js';
 import { HttpStatusCode } from '@/server/constants/http.js';
 
 type AppAssert = (
-  condition: any,
+  condition: boolean | undefined | null,
   statusCode: HttpStatusCode,
   message: string,
   errorCode?: AppErrorCode

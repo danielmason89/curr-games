@@ -9,9 +9,31 @@ import routes from './routes/index.js';
 import errorHandler from './middleware/errorHandler.js';
 import notFoundHandler from './middleware/notFoundHandler.js';
 import { limiter } from '@/server/lib/rateLimit.js';
+import helmet from 'helmet';
 
 const app = express();
 logger.info(`Initializing server in the ${env.NODE_ENV} environment.`);
+
+// Remove X-Powered-By header at app level
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        'script-src': [
+          "'self'",
+          "'unsafe-inline'",
+          "'unsafe-eval'", // Required for Vite HMR
+          'https:', // Allow loading scripts from HTTPS sources
+        ],
+        'img-src': ["'self'", 'data:', 'https:'],
+        'style-src': ["'self'", "'unsafe-inline'"],
+        'connect-src': ["'self'", 'ws:', 'wss:'], // Required for WebSocket connections
+      },
+    },
+    hidePoweredBy: true, // Removes X-Powered-By header
+  })
+);
 
 // API-specific middleware
 const apiRouter = express.Router();
