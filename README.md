@@ -111,7 +111,7 @@
    npm run dev
    ```
 
-5. Open [http://localhost:5174](http://localhost:3000) to view it in the browser.
+5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 <br/>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
