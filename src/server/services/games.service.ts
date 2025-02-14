@@ -15,7 +15,9 @@ export const getGames = async () => {
     throw new Error('Invalid API response format', { cause: result.error });
   }
 
-  logger.info(`Successfully fetched ${result.data.results.length} games`);
+  logger.info(
+    `Successfully fetched ${result.data.results.length} games of ${result.data.count} games`
+  );
   return result.data.results;
 };
 
