@@ -159,10 +159,10 @@ You can also simply open an issue with the tag "enhancement".
 ## Main Contributors ✨
 
 <div>
-  <p>Daniel Mason</p>
   <img src="https://avatars.githubusercontent.com/u/77700361?v=4" width="100" height="100" />
-  <p>Lucas Winkler</p>
+  <p>Daniel Mason</p>
   <img src="https://avatars.githubusercontent.com/u/43054519?v=4" width="100" height="100" />
+  <p>Lucas Winkler</p>
 </div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
