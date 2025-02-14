@@ -10,7 +10,7 @@ export const env = createEnv({
       .enum(['development', 'production', 'test'])
       .default('development'),
     PORT: z.coerce.number().default(3000),
-    APP_ORIGIN: z.string().url().default('http://localhost:3000'),
+    APP_ORIGIN: z.string().url(),
     LOG_LEVEL: z
       .enum(['error', 'warn', 'info', 'http', 'verbose', 'debug', 'silly'])
       .default('info'),
