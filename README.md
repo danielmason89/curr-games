@@ -93,7 +93,7 @@
 
 - Node.js 18+ and npm
 
-### Installation - Part 1
+### Installation
 1. Clone the repo
    ```sh
    git clone https://github.com/danielmason89/curr-games.git
@@ -111,27 +111,7 @@
    ```
 
 5. Open [http://localhost:5174](http://localhost:5174) to view it in the browser.
-
 <br/>
-
-### Installation - Part 2
-
-First, clone this repository:
-
-<!-- start:code block -->
-### Clone this repository
-git clone [https://github.com/danielmason89/curr-games.git](https://github.com/danielmason89/curr-games.git)
-cd papermark
-
-### Install dependencies
-npm install
-
-### Copy the example .env file
-cp .env.example .env
-
-### Run the app
-npm run dev
-<!-- end:code block -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
