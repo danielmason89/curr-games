@@ -23,6 +23,8 @@
 <div align="center">
 <h1 align="center">Curr🔥games</h1>
 
+## 🚀 About the Project 🚀
+
   <div align="center">
     <p>An Avid Video Games Platform App</p>
     <p>An app created to help with keeping track of busy video games release schedule, and to search for upcoming, popular, new, and released video-game games, that you may have missed.  
@@ -37,29 +39,9 @@
   </p>
 </div>
 
-## 🚀 About the Project 🚀
-
 [![Product Name Screen Shot][product-screenshot]](https://curr-games.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## Built With
-
-- [![React][React.js]][React-url]
-- [![React Router][React Router]][React Router-url]
-- [![Motion][Motion]][Motion-url]
-- [![TypeScript][TypeScript]][TypeScript-url]
-- [![Vite][Vite]][Vite-url]
-- [![Redux][Redux]][Redux-url]
-- [![Axios][Axios]][Axios-url]
-- [![Netlify][Netlify]][Netlify-url]
-- [![Styled Components][Styled Components]][Styled Components-url]
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 ## Table of Contents
 
@@ -84,6 +66,26 @@
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
+
+## Built With
+
+- [![React][React.js]][React-url]
+- [![React Router][React Router]][React Router-url]
+- [![Motion][Motion]][Motion-url]
+- [![TypeScript][TypeScript]][TypeScript-url]
+- [![Vite][Vite]][Vite-url]
+- [![Redux][Redux]][Redux-url]
+- [![Axios][Axios]][Axios-url]
+- [![Netlify][Netlify]][Netlify-url]
+- [![Styled Components][Styled Components]][Styled Components-url]
+
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
@@ -199,3 +201,5 @@ You can also simply open an issue with the tag "enhancement".
 [Styled Components-url]: https://styled-components.com/
 [Netlify]: https://img.shields.io/badge/Netlify-00C7B7?logo=netlify&logoColor=fff&style=flat
 [Netlify-url]: https://www.netlify.com/
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
