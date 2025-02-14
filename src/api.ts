@@ -23,7 +23,7 @@ const lastYear = `${currentYear - 1}-${currentMonth}-${currentDay}`;
 const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`;
 
 // Popular games
-const apiKey = process.env.REACT_APP_YOUR_API_KEY;
+const apiKey = process.env.RAWG_API_KEY;
 
 const popularGames = `games?key=${apiKey}&dates=${lastYear},${currentDate}&ordering=-rating&page_size=10`;
 const upcomingGames = `games?key=${apiKey}&dates=${currentDate},${nextYear}&ordering=-added&page_size=10`;
