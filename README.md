@@ -21,7 +21,8 @@
 
 <br />
 <div align="center">
-<h1 align="center">Curr🔥games</h1>
+
+# Curr🔥games
 
 ### 🚀 About the Project 🚀
 
