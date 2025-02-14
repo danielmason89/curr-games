@@ -185,16 +185,16 @@ You can also simply open an issue with the tag "enhancement".
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/lucaswinkler/poitogo.svg?style=for-the-badge
-[contributors-url]: https://github.com/lucaswinkler/poitogo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/lucaswinkler/poitogo.svg?style=for-the-badge
-[forks-url]: https://github.com/lucaswinkler/poitogo/network/members
-[stars-shield]: https://img.shields.io/github/stars/lucaswinkler/poitogo.svg?style=for-the-badge
-[stars-url]: https://github.com/lucaswinkler/poitogo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/lucaswinkler/poitogo.svg?style=for-the-badge
-[issues-url]: https://github.com/lucaswinkler/poitogo/issues
-[license-shield]: https://img.shields.io/github/license/lucaswinkler/poitogo.svg?style=for-the-badge
-[license-url]: https://github.com/lucaswinkler/poitogo/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/danielmason89/curr-games.svg?style=for-the-badge
+[contributors-url]: https://github.com/danielmason89/curr-games/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/danielmason89/curr-games.svg?style=for-the-badge
+[forks-url]: https://github.com/danielmason89/curr-games/network/members
+[stars-shield]: https://img.shields.io/github/stars/danielmason89/curr-games.svg?style=for-the-badge
+[stars-url]: https://github.com/danielmason89/curr-games/stargazers
+[issues-shield]: https://img.shields.io/github/issues/danielmason89/curr-games.svg?style=for-the-badge
+[issues-url]: https://github.com/danielmason89/curr-games/issues
+[license-shield]: https://img.shields.io/github/license/danielmason89/curr-games.svg?style=for-the-badge
+[license-url]: https://github.com/danielmason89/curr-games/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/daniel-mason-dev/
 [product-screenshot]: images/screenshot.png
