@@ -23,7 +23,7 @@
 <div align="center">
 <h1 align="center">Curr🔥games</h1>
 
-## 🚀 About the Project 🚀
+### 🚀 About the Project 🚀
 
   <div align="center">
     <p>An Avid Video Games Platform App</p>
@@ -40,8 +40,6 @@
 </div>
 
 [![Product Name Screen Shot][product-screenshot]](https://curr-games.netlify.app/)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Table of Contents
 
@@ -201,5 +199,3 @@ You can also simply open an issue with the tag "enhancement".
 [Styled Components-url]: https://styled-components.com/
 [Netlify]: https://img.shields.io/badge/Netlify-00C7B7?logo=netlify&logoColor=fff&style=flat
 [Netlify-url]: https://www.netlify.com/
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
