@@ -158,9 +158,9 @@ You can also simply open an issue with the tag "enhancement".
 
 <div>
   <img src="https://avatars.githubusercontent.com/u/77700361?v=4" width="100" height="100" />
-  <p>Daniel Mason - danielmasson0@gmail.com</p>
+  <p>Daniel Mason</p>
   <img src="https://avatars.githubusercontent.com/u/43054519?v=4" width="100" height="100" />
-  <p>Lucas Winkler - lucaswinkler@gmail.com</p>
+  <p>Lucas Winkler</p>
 </div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
