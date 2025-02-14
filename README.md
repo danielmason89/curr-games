@@ -81,7 +81,6 @@
       </ul>
     </li>
     <li><a href="#contribute">Contributing</a></li>
-    <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
@@ -136,7 +135,7 @@ npm run dev
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- CONTRIBUTING -->
+<!-- CONTRIBUTE -->
 
 ## How to - Contribute
 
@@ -159,9 +158,9 @@ You can also simply open an issue with the tag "enhancement".
 
 <div>
   <img src="https://avatars.githubusercontent.com/u/77700361?v=4" width="100" height="100" />
-  <p>Daniel Mason- [@DanielMason](https://www.linkedin.com/in/daniel-mason-dev/) - danielmasson0@gmail.com</p>
+  Daniel Mason- [@DanielMason](https://www.linkedin.com/in/daniel-mason-dev/) - danielmasson0@gmail.com
   <img src="https://avatars.githubusercontent.com/u/43054519?v=4" width="100" height="100" />
-  <p>Lucas Winkler - [@LucasJWinkler](https://twitter.com/LucasJWinkler) - lucaswinkler@gmail.com</p>
+  Lucas Winkler - [@LucasJWinkler](https://twitter.com/LucasJWinkler) - lucaswinkler@gmail.com
 </div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
