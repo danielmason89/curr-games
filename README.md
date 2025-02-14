@@ -115,7 +115,9 @@
 5. Open [http://localhost:5174](http://localhost:5174) to view it in the browser.
 
 <br/>
+
 ### Installation - Part 2
+
 First, clone this repository:
 
 <!-- start:code block -->
@@ -137,7 +139,7 @@ npm run dev
 
 <!-- CONTRIBUTING -->
 
-## Contributing
+## How to - Contribute
 
 Curr🔥games is an open-source project and we welcome contributions from the community.
 
@@ -154,13 +156,13 @@ You can also simply open an issue with the tag "enhancement".
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Our Contributors ✨
+## Main Contributors ✨
 
 <div>
   <p>Daniel Mason</p>
-  <img src="https://avatars.githubusercontent.com/u/77700361?v=4" width="80" height="80" />
+  <img src="https://avatars.githubusercontent.com/u/77700361?v=4" width="100" height="100" />
   <p>Lucas Winkler</p>
-  <img src="https://avatars.githubusercontent.com/u/43054519?v=4" width="80" height="80" />
+  <img src="https://avatars.githubusercontent.com/u/43054519?v=4" width="100" height="100" />
 </div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
