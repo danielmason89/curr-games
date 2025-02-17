@@ -1,26 +1,102 @@
-import type { Game } from '@/shared/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import type { GameDetails, GamesResponse } from '@/shared/types';
+import type { GameQueryParams } from '@/shared/utils';
+import {
+  getCurrentDate,
+  getLastYearDate,
+  getNextYearDate,
+  buildQueryString,
+} from '@/shared/utils';
 
-// Define our API service using RTK Query
-// This automatically generates hooks and manages the data fetching/caching logic
+// Define common query parameters
+const COMMON_PAGE_SIZE = 10;
+
+/**
+ * Predefined query parameter configurations for different game lists.
+ * These presets ensure consistent filtering across the application.
+ *
+ * popular: Games from the last year, sorted by rating
+ * upcoming: Games releasing in the next year, sorted by popularity
+ * new: Recently released games, sorted by release date
+ * search: Games matching a search term
+ */
+export const QUERY_PRESETS = {
+  popular: {
+    dates: `${getLastYearDate()},${getCurrentDate()}`,
+    ordering: '-rating',
+    page_size: COMMON_PAGE_SIZE,
+  },
+  upcoming: {
+    dates: `${getCurrentDate()},${getNextYearDate()}`,
+    ordering: '-added',
+    page_size: COMMON_PAGE_SIZE,
+  },
+  new: {
+    dates: `${getLastYearDate()},${getCurrentDate()}`,
+    ordering: '-released',
+    page_size: COMMON_PAGE_SIZE,
+  },
+  search: (searchTerm: string) => ({
+    search: searchTerm,
+    page_size: COMMON_PAGE_SIZE,
+  }),
+} as const;
+
+/**
+ * RTK Query API definition for games-related endpoints.
+ *
+ * This API service uses RTK Query to handle:
+ * - Automatic caching
+ * - Request deduplication
+ * - Polling
+ * - Cache invalidation
+ *
+ * Type Parameters for endpoints:
+ * builder.query<ReturnType, QueryArg>
+ * - ReturnType: The type of data returned by the endpoint
+ * - QueryArg: The type of argument accepted by the endpoint
+ *
+ * Example usage:
+ * ```typescript
+ * // In a component:
+ * const { data, error, isLoading } = useGetGamesQuery({ page: 1, search: 'mario' });
+ * const { data: gameDetails } = useGetGameByIdQuery(123);
+ * ```
+ */
 export const gamesApi = createApi({
   reducerPath: 'gamesApi',
-  // Configure the base API URL
   baseQuery: fetchBaseQuery({ baseUrl: '/api' }),
-  // Define endpoints for data fetching operations
-  // RTK Query will generate hooks like useGetGamesQuery automatically
   endpoints: builder => ({
-    // For each query, we define two generic type parameters:
-    // 1. ResultType: The type of data the API will return (Game[])
-    // 2. QueryArg: The type of argument the query accepts (void means no argument)
-    getGames: builder.query<Game[], void>({
-      query: () => '/games',
+    // Get games with optional filtering
+    getGames: builder.query<GamesResponse, GameQueryParams | void>({
+      query: params =>
+        params ? `/games?${buildQueryString(params)}` : '/games',
     }),
-    // Here, QueryArg is Game['id'] (the type of the id field from Game)
-    // This ensures type safety when calling the hook with an id
-    // We could manually define the type for the id argument, but this is more type-safe as it uses the id from the Game type
-    getGameById: builder.query<Game, Game['id']>({
+
+    // Get a single game by ID
+    getGameById: builder.query<GameDetails, GameDetails['id']>({
       query: id => `/games/${id}`,
+    }),
+
+    // Get popular games from the last year
+    getPopularGames: builder.query<GamesResponse, void>({
+      query: () => `/games?${buildQueryString(QUERY_PRESETS.popular)}`,
+    }),
+
+    // Get upcoming games for the next year
+    getUpcomingGames: builder.query<GamesResponse, void>({
+      query: () => `/games?${buildQueryString(QUERY_PRESETS.upcoming)}`,
+    }),
+
+    // Get new releases from the last year
+    getNewGames: builder.query<GamesResponse, void>({
+      query: () => `/games?${buildQueryString(QUERY_PRESETS.new)}`,
+    }),
+
+    // Search games by term
+    searchGames: builder.query<GamesResponse, string>({
+      query: searchTerm =>
+        `/games?${buildQueryString(QUERY_PRESETS.search(searchTerm))}`,
     }),
   }),
 });

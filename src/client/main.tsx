@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router';
 import { Provider } from 'react-redux';
 import { store } from './store';
 import './index.css';
+import SearchResults from '@/client/pages/SearchResults';
 
 import RootLayout from './layouts/RootLayout';
 import Home from './pages/Home';
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
             <Route index element={<Home />} />
             <Route path='games' element={<Games />} />
             <Route path='games/:id' element={<GameDetails />} />
+            <Route path='search' element={<SearchResults />} />
             <Route path='*' element={<NotFound />} />
           </Route>
         </Routes>
