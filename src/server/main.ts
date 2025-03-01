@@ -12,6 +12,7 @@ import { limiter } from '@/server/lib/rateLimit.js';
 import helmet from 'helmet';
 
 const app = express();
+ViteExpress.config({mode: env.NODE_ENV === 'production' ? 'production' : 'development'});
 logger.info(`Initializing server in the ${env.NODE_ENV} environment.`);
 
 // Remove X-Powered-By header at app level
