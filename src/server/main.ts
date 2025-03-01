@@ -60,8 +60,17 @@ logger.info('API routes and error handling initialized.');
 app.use(ViteExpress.static());
 logger.info('Static middleware initialized.');
 
-ViteExpress.listen(app, env.PORT, () =>
-  logger.info(
-    `Server is running on port ${env.PORT} (Environment: ${env.NODE_ENV})`
-  )
-);
+// For local development, run the server normally
+if (env.NODE_ENV !== 'production' || !env.VERCEL) {
+  const PORT = env.PORT;
+  const server = app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+  
+  ViteExpress.bind(app, server);
+} else {
+  console.log('Running in Vercel serverless mode');
+}
+
+// Export for serverless function
+export default app;
