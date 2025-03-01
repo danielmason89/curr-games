@@ -1,6 +1,6 @@
 import React from 'react';
 import { useGetGamesQuery } from '@/client/hooks/useGamesApi';
-import { GamesList } from '@/client/components/GamesList';
+// import { GamesList } from '@/client/components/GamesList';
 
 export default function Games() {
   // RTK Query hook automatically handles:
@@ -13,7 +13,7 @@ export default function Games() {
 
   return (
     <div className='games'>
-      <GamesList title='All Games' {...games} />
+      {/* <GamesList title='All Games' {...games} /> */}
       <div>
         <h3>Full response object</h3>
         <pre>{JSON.stringify(games, null, 2)}</pre>

@@ -158,3 +158,4 @@ export type Game = z.infer<typeof gameSchema>;
 export type GamesResponse = z.infer<typeof gamesResponseSchema>;
 export type GameDetails = z.infer<typeof gameDetailsSchema>;
 export type GameQueryParams = z.infer<typeof gameQuerySchema>;
+export type PlatformDetails = z.infer<typeof platformDetailSchema>;

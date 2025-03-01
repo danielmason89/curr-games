@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link, useSearchParams } from 'react-router';
+import { useSearchParams } from 'react-router';
 import { useSearchGamesQuery } from '@/client/hooks/useGamesApi';
+import {GamesList} from '@/client/components/GamesList';
 
 export default function SearchResults() {
   const [searchParams] = useSearchParams();
@@ -27,14 +28,7 @@ export default function SearchResults() {
 
   return (
     <div>
-      <h2>Search Results for &quot;{query}&quot;</h2>
-      <ul>
-        {data.results.map(game => (
-          <li key={game.id}>
-            <Link to={`/games/${game.id}`}>{game.name}</Link>
-          </li>
-        ))}
-      </ul>
+      <GamesList data={data} isLoading={isLoading} />
     </div>
   );
 }
