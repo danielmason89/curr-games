@@ -19,9 +19,7 @@ interface GameProps {
 
 const Game = ({ name, released, image: image, id}: GameProps) => {
    const [isModalOpen, setIsModalOpen] = useState(false);
-
   const stringPathId = id?.toString();
-
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -30,7 +28,6 @@ const Game = ({ name, released, image: image, id}: GameProps) => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   }
-
 
   return (
    <>
