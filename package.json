@@ -1,53 +1,58 @@
 {
   "name": "curr-games",
-  "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^14.6.1",
-    "axios": "^1.7.9",
-    "cra-template-typescript": "1.2.0",
-    "framer-motion": "^4.1.17",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-icons": "^5.4.0",
-    "react-redux": "^7.2.9",
-    "react-router-dom": "^6.28.2",
-    "react-scripts": "5.0.1",
-    "redux": "^4.2.1",
-    "redux-thunk": "^2.4.2",
-    "styled-components": "^6.1.14"
-  },
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "nodemon -w src/server -x tsx src/server/main.ts",
+    "start": "cross-env NODE_ENV=production tsx src/server/main.ts",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint ."
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.5.1",
+    "@t3-oss/env-core": "^0.12.0",
+    "axios": "^1.7.9",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.5.0",
+    "framer-motion": "^12.4.7",
+    "helmet": "^8.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.4.0",
+    "react-redux": "^9.2.0",
+    "react-router": "^7.1.5",
+    "react-router-dom": "^7.2.0",
+    "styled-components": "^6.1.15",
+    "tsx": "^4.3.0",
+    "typescript": "^5.3.2",
+    "vite-express": "*",
+    "web-vitals": "^4.2.4",
+    "winston": "^3.17.0",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@types/jest": "^29.5.14",
-    "@types/redux-thunk": "^2.1.32",
-    "@types/styled-components": "^5.1.34",
-    "web-vitals": "^4.2.4"
+    "@eslint/js": "^9.20.0",
+    "@types/cookie-parser": "^1.4.8",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.9.3",
+    "@types/react": "^18.0.38",
+    "@types/react-dom": "^18.2.16",
+    "@types/react-router-dom": "^5.3.3",
+    "@vitejs/plugin-react": "^4.2.0",
+    "eslint": "^9.20.1",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^15.15.0",
+    "nodemon": "^3.0.1",
+    "prettier": "3.5.0",
+    "typescript-eslint": "^8.24.0",
+    "vite": "^5.0.2"
   }
 }
