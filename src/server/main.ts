@@ -12,6 +12,7 @@ import { limiter } from '@/server/lib/rateLimit.js';
 import helmet from 'helmet';
 
 const app = express();
+ViteExpress.config({mode: env.NODE_ENV === 'production' ? 'production' : 'development'});
 logger.info(`Initializing server in the ${env.NODE_ENV} environment.`);
 
 // Remove X-Powered-By header at app level
@@ -60,17 +61,8 @@ logger.info('API routes and error handling initialized.');
 app.use(ViteExpress.static());
 logger.info('Static middleware initialized.');
 
-// For local development, run the server normally
-if (env.NODE_ENV !== 'production' || !env.VERCEL) {
-  const PORT = env.PORT;
-  const server = app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
-  
-  ViteExpress.bind(app, server);
-} else {
-  console.log('Running in Vercel serverless mode');
-}
-
-// Export for serverless function
-export default app;
+ViteExpress.listen(app, env.PORT, () =>
+  logger.info(
+    `Server is running on port ${env.PORT} (Environment: ${env.NODE_ENV})`
+  )
+);

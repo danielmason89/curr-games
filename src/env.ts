@@ -15,7 +15,6 @@ export const env = createEnv({
       .enum(['error', 'warn', 'info', 'http', 'verbose', 'debug', 'silly'])
       .default('info'),
     RAWG_API_KEY: z.string().min(1),
-    VERCEL: z.boolean().default(false).optional(),
   },
 
   /**
@@ -38,7 +37,6 @@ export const env = createEnv({
     APP_ORIGIN: process.env.APP_ORIGIN,
     LOG_LEVEL: process.env.LOG_LEVEL,
     RAWG_API_KEY: process.env.RAWG_API_KEY,
-    VERCEL: process.env.VERCEL,
   },
 
   emptyStringAsUndefined: true,
