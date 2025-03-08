@@ -63,6 +63,6 @@ logger.info('Static middleware initialized.');
 
 ViteExpress.listen(app, env.PORT, () =>
   logger.info(
-    `Server is running on port ${env.PORT} (Environment: ${env.NODE_ENV})`
+    `Server is running on the port ${env.PORT} (Environment: ${env.NODE_ENV})`
   )
 );
