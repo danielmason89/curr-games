@@ -1,14 +1,10 @@
 import React from 'react';
-// Styling and Animation
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-// Redux
-import { useNavigate } from 'react-router';
 import { smallImage } from '../utils/image';
-// Icons
 import PlatformIcons from './PlatformIcons';
 import StarRating from './StarRating';
-import type {GameDetails} from '@/shared/types';
+import type { GameDetails } from '@/shared/types';
 import { useGetGameByIdQuery } from '../hooks/useGamesApi';
 import { stripHtmlTags } from '../utils/stripHtmlTags';
 
@@ -17,9 +13,8 @@ interface GameModalProps {
   onModalClose: () => void;
 }
 
-const GameModal = ({ gameId,  onModalClose }: GameModalProps) => {
-  const {data: game, isLoading} = useGetGameByIdQuery(gameId);
-  const navigate = useNavigate();
+const GameModal = ({ gameId, onModalClose }: GameModalProps) => {
+  const { data: game, isLoading } = useGetGameByIdQuery(gameId);
 
   // Exit Detail
   const exitDetailhandler = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -27,7 +22,6 @@ const GameModal = ({ gameId,  onModalClose }: GameModalProps) => {
     if (element.classList.contains('shadow')) {
       document.body.style.overflow = 'auto';
       onModalClose();
-      navigate('/');
     }
   };
 
@@ -36,8 +30,7 @@ const GameModal = ({ gameId,  onModalClose }: GameModalProps) => {
   }
 
   const gameIdString = game.id!.toString();
-  const parsedDescription = stripHtmlTags(game.description ?? "");
-
+  const parsedDescription = stripHtmlTags(game.description ?? '');
 
   return (
     <>
@@ -45,23 +38,25 @@ const GameModal = ({ gameId,  onModalClose }: GameModalProps) => {
         <CardShadow className='shadow' onClick={exitDetailhandler}>
           <Detail layoutId={gameIdString}>
             <Stats>
-              <motion.h3 layoutId={`title ${gameIdString}`}>{game.name}</motion.h3>
+              <motion.h3 layoutId={`title ${gameIdString}`}>
+                {game.name}
+              </motion.h3>
               <Info>
                 <RatingSection>
                   <StarRating rating={game.rating || 0} />
                 </RatingSection>
-                {game.platforms && game.platforms.length > 0 && ( 
-                <PlatformSection>
-                  <PlatformIcons platforms={game.platforms} />
-                </PlatformSection>
+                {game.platforms && game.platforms.length > 0 && (
+                  <PlatformSection>
+                    <PlatformIcons platforms={game.platforms} />
+                  </PlatformSection>
                 )}
               </Info>
             </Stats>
             <Media>
               <motion.img
                 layoutId={`image ${gameIdString}`}
-                src={smallImage(game.background_image ?? "", 1280)}
-                alt="Game Screen Screenshot"
+                src={smallImage(game.background_image ?? '', 1280)}
+                alt='Game Screen Screenshot'
               />
             </Media>
             <Description>
