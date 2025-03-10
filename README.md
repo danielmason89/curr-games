@@ -77,7 +77,6 @@
 - [![Axios][Axios]][Axios-url]
 - [![Styled Components][Styled Components]][Styled Components-url]
 - [![Cors][Cors]][Cors-url]
-- [![React-Router-Dom][ReactRouterDom]][ReactRouterDom-url]
 - [![Cookie-Parser][Cookie-Parser]][Cookie-Parser-url]
 - [![tsx][tsx]][tsx-url]
 - [![ViteExpress][ViteExpress]][ViteExpress-url]
@@ -227,8 +226,8 @@ You can also simply open an issue with the tag "enhancement".
 [Styled Components-url]: https://styled-components.com/
 [Cors]: https://img.shields.io/badge/Cors-00C7B7?logoColor=fff&style=flat
 [Cors-url]: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
-[ReactRouterDom]: https://img.shields.io/badge/react-router-dom-00C7B7?logoColor=fff&style=flat
-[ReactRouterDom-url]: https://www.npmjs.com/package/react-router-dom
+[react-router-dom]: https://img.shields.io/badge/react-router-dom-00C7B7?logoColor=fff&style=flat
+[react-router-dom-url]: https://www.npmjs.com/package/react-router-dom
 [Cookie-Parser]: https://img.shields.io/badge/cookie-parser-00C7B7?logoColor=fff&style=flat
 [Cookie-Parser-url]: https://www.npmjs.com/package/cookie-parser
 [tsx]: https://img.shields.io/badge/tsx-00C7B7?logoColor=fff&style=flat
