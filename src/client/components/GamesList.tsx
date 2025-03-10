@@ -6,6 +6,7 @@ import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import Game from './Game';
 import { motion } from 'framer-motion';
 import { GameListSkeleton } from './GameListSkeleton';
+import ErrorMessage from './ErrorMessage';
 
 interface GamesListProps {
   data?: GamesResponse;
@@ -21,7 +22,13 @@ export const GamesList = ({
   title,
 }: GamesListProps) => {
   if (error) {
-    return <div>Error loading</div>;
+    return (
+      <ErrorMessage
+        title={`Error Loading ${title || 'Games'}`}
+        message='We encountered a problem while loading the games.'
+        icon='error'
+      />
+    );
   }
 
   if (isLoading) {
@@ -29,7 +36,13 @@ export const GamesList = ({
   }
 
   if (!data?.results.length) {
-    return <div>No results found</div>;
+    return (
+      <ErrorMessage
+        title='No Results Found'
+        message={`We couldn't find any ${title ? title.toLowerCase() : 'games'} to display.`}
+        icon='search'
+      />
+    );
   }
 
   return (

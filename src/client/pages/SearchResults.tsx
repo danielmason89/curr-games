@@ -10,24 +10,13 @@ export default function SearchResults() {
   const query = searchParams.get('q') || '';
   const title = `Search results for "${query}"`;
 
-  const { data, isLoading, error, originalArgs } = useSearchGamesQuery(query);
-
-  if (error) {
-    return (
-      <ErrorMessage
-        title='Search Error'
-        message={`We encountered a problem while searching for "${query}"`}
-        details={error.toString()}
-        icon='error'
-      />
-    );
-  }
+  const { data, isLoading, error } = useSearchGamesQuery(query);
 
   if (isLoading) {
     return <GameListSkeleton title={title} />;
   }
 
-  if (!data?.results.length && originalArgs === query) {
+  if (!data?.results.length) {
     return (
       <ErrorMessage
         title='No Results Found'
@@ -40,7 +29,12 @@ export default function SearchResults() {
 
   return (
     <div>
-      <GamesList data={data} isLoading={isLoading} title={title} />
+      <GamesList
+        data={data}
+        isLoading={isLoading}
+        error={error}
+        title={title}
+      />
     </div>
   );
 }

@@ -46,7 +46,6 @@ const ErrorContainer = styled.div`
 interface ErrorMessageProps {
   title: string;
   message: string;
-  details?: string;
   icon?: 'error' | 'search';
   children?: ReactNode;
 }
@@ -54,7 +53,6 @@ interface ErrorMessageProps {
 const ErrorMessage = ({
   title,
   message,
-  details,
   icon = 'error',
   children,
 }: ErrorMessageProps) => {
@@ -63,7 +61,6 @@ const ErrorMessage = ({
       {icon === 'error' ? <FaExclamationTriangle /> : <FaSearch />}
       <h2>{title}</h2>
       <p>{message}</p>
-      {details && <div className='error-details'>{details}</div>}
       {children}
     </ErrorContainer>
   );

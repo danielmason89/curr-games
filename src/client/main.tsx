@@ -7,7 +7,6 @@ import SearchResults from '@/client/pages/SearchResults';
 
 import RootLayout from './layouts/RootLayout';
 import Home from './pages/Home';
-// import Games from './pages/Games';
 // import GameDetails from './pages/GameDetails';
 import NotFound from './pages/NotFound';
 
@@ -25,7 +24,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <Routes>
           <Route element={<RootLayout />}>
             <Route index element={<Home />} />
-            {/* <Route path='games' element={<Games />} /> */}
             {/* <Route path='games/:id' element={<GameDetails />} /> */}
             <Route path='search' element={<SearchResults />} />
             <Route path='*' element={<NotFound />} />
