@@ -109,14 +109,19 @@
 - Node.js 18+ and npm
 
 ### Installation
+
 1. Clone the repo
+
    ```sh
    git clone https://github.com/danielmason89/curr-games.git
    ```
+
 2. Install NPM packages
+
    ```sh
    npm install
    ```
+
 3. Copy the `.env.example` file to `.env` and fill in the variables
 
 4. Run the development server
@@ -201,11 +206,8 @@ You can also simply open an issue with the tag "enhancement".
 [stars-url]: https://github.com/danielmason89/curr-games/stargazers
 [issues-shield]: https://img.shields.io/github/issues/danielmason89/curr-games.svg?style=for-the-badge
 [issues-url]: https://github.com/danielmason89/curr-games/issues
-[license-shield]: https://img.shields.io/github/license/danielmason89/curr-games.svg?style=for-the-badge
-[license-url]: https://github.com/danielmason89/curr-games/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/daniel-mason-dev/
-[product-screenshot]: images/screenshot.png
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 [TypeScript]: https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff
