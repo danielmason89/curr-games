@@ -63,7 +63,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#contribute">Contributing</a></li>
+    <li><a href="#contribute">Contribute</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
@@ -134,7 +134,7 @@
 
 <!-- CONTRIBUTE -->
 
-## How to - Contribute
+## Contribute
 
 Curr🔥games is an open-source project and we welcome contributions from the community.
 
