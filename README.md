@@ -75,8 +75,23 @@
 - [![Vite][Vite]][Vite-url]
 - [![Redux][Redux]][Redux-url]
 - [![Axios][Axios]][Axios-url]
-- [![Netlify][Netlify]][Netlify-url]
 - [![Styled Components][Styled Components]][Styled Components-url]
+- [![Cors][Cors]][Cors-url]
+- [![ReactRouterDom][ReactRouterDom]][ReactRouterDom-url]
+- [![Cookie-Parser][Cookie-Parser]][Cookie-Parser-url]
+- [![tsx][tsx]][tsx-url]
+- [![ViteExpress][ViteExpress]][ViteExpress-url]
+- [![web-vitals][web-vitals]][web-vitals-url]
+- [![Zod][Zod]][Zod-url]
+- [![Nodemon][Nodemon]][Nodemon-url]
+- [![Prettier][Prettier]][Prettier-url]
+- [![TypeScriptEslint][TypeScriptEslint]][typescript-eslint-url]
+- [![Express][Express]][Express-url]
+- [![react-icons][react-icons]][react-icons-url]
+- [![react-redux][react-redux]][react-redux-url]
+- [![cross-env][cross-env]][cross-env-url]
+- [![dotenv][dotenv]][dotenv-url]
+- [![Render][Render]][Render-url]
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -157,7 +172,22 @@ You can also simply open an issue with the tag "enhancement".
 - [Redux](https://redux.js.org/)
 - [Styled Components](https://styled-components.com/)
 - [Vite](https://vite.dev/)
-- [Netlify](https://www.netlify.com/)
+- [Cors](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+- [React Router Dom](https://www.npmjs.com/package/react-router-dom)
+- [Cookie-Parser](https://www.npmjs.com/package/cookie-parser)
+- [tsx](https://www.npmjs.com/package/tsx)
+- [Vite Express](https://www.npmjs.com/package/vite-express)
+- [web-vitals](https://www.npmjs.com/package/web-vitals)
+- [Zod](https://zod.dev/)
+- [Nodemon](https://nodemon.io/)
+- [Prettier](https://prettier.io/)
+- [TypeScript Eslint](https://typescript-eslint.io/)
+- [Express](https://expressjs.com/)
+- [react-icons](https://react-icons.github.io/react-icons/)
+- [react-redux](https://react-redux.js.org/)
+- [cross-env](https://www.npmjs.com/package/cross-env)
+- [dotenv](https://www.npmjs.com/package/dotenv)
+- [Render](https://render.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
