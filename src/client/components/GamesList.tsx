@@ -5,6 +5,7 @@ import { SerializedError } from '@reduxjs/toolkit';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import Game from './Game';
 import { motion } from 'framer-motion';
+import { GameListSkeleton } from './GameListSkeleton';
 
 interface GamesListProps {
   data?: GamesResponse;
@@ -24,7 +25,7 @@ export const GamesList = ({
   }
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <GameListSkeleton title={title} />;
   }
 
   if (!data?.results.length) {
@@ -49,7 +50,7 @@ export const GamesList = ({
   );
 };
 
-const GameList = styled(motion.div)`
+export const GameList = styled(motion.div)`
   padding: 0rem 5rem;
   h2 {
     padding: 5rem 2rem;
@@ -67,7 +68,7 @@ const GameList = styled(motion.div)`
   }
 `;
 
-const Games = styled(motion.ul)`
+export const Games = styled(motion.ul)`
   display: grid;
   justify-content: flex-start;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

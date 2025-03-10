@@ -57,10 +57,11 @@ const StyledGame = styled(motion.li)`
   height: auto;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
+  border: 0.05rem solid transparent;
   border-radius: 1rem;
-  cursor: pointer;
   overflow: hidden;
   margin-bottom: 1rem;
+  background-color: #f8f8f8;
   h3 {
     font-size: 0.9rem;
   }
@@ -68,11 +69,23 @@ const StyledGame = styled(motion.li)`
     font-size: 1rem;
   }
 
+  button {
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background: #f8f8f8;
+    padding: 0;
+    display: block;
+  }
+
   img {
     width: 100%;
     height: 40vh;
     object-fit: cover;
   }
+
   &:hover {
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
     border: 0.05rem solid #000000;
