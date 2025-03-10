@@ -1,11 +1,13 @@
 import React, { useState, useRef } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, useSearchParams } from 'react-router';
 import styled from 'styled-components';
 
 export function SearchBar() {
-  const [textInput, setTextInput] = useState('');
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const inputRef = useRef<HTMLInputElement>(null);
+  const query = searchParams.get('q') || '';
+  const [textInput, setTextInput] = useState(query);
 
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTextInput(e.target.value);
@@ -15,8 +17,8 @@ export function SearchBar() {
     e.preventDefault();
 
     const trimmed = textInput.trim();
-    if (trimmed) { 
-      navigate("/search?q=" + encodeURIComponent(textInput));
+    if (trimmed) {
+      navigate('/search?q=' + encodeURIComponent(textInput));
     }
   };
 
@@ -26,28 +28,33 @@ export function SearchBar() {
   };
 
   return (
-      <Form className='search'>
-        <input value={textInput} onChange={inputHandler} type='text' ref={inputRef} />
-        <div className='buttons'>
-          <button onClick={submitSearch} type='submit' id='button1'>
-            Search
-          </button>
-          <button onClick={clearSearched} type='button' id='button2'>
-            Clear
-          </button>
-        </div>
-      </Form>
+    <Form className='search'>
+      <input
+        value={textInput}
+        onChange={inputHandler}
+        type='text'
+        ref={inputRef}
+      />
+      <div className='buttons'>
+        <button onClick={submitSearch} type='submit' id='button1'>
+          Search
+        </button>
+        <button onClick={clearSearched} type='button' id='button2'>
+          Clear
+        </button>
+      </div>
+    </Form>
   );
 }
 
 const Form = styled.form`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 2rem;
 
-    .buttons {
+  .buttons {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -80,4 +87,4 @@ const Form = styled.form`
       font-size: 0.9rem;
     }
   }
-`
+`;
