@@ -7,6 +7,7 @@ import StarRating from './StarRating';
 import type { GameDetails } from '@/shared/types';
 import { useGetGameByIdQuery } from '../hooks/useGamesApi';
 import { stripHtmlTags } from '../utils/stripHtmlTags';
+import { Link } from 'react-router';
 
 interface GameModalProps {
   gameId: GameDetails['id'];
@@ -16,7 +17,6 @@ interface GameModalProps {
 const GameModal = ({ gameId, onModalClose }: GameModalProps) => {
   const { data: game, isLoading } = useGetGameByIdQuery(gameId);
 
-  // Exit Detail
   const exitDetailhandler = (e: React.MouseEvent<HTMLDivElement>) => {
     const element = e.target as HTMLDivElement;
     if (element.classList.contains('shadow')) {
@@ -38,9 +38,12 @@ const GameModal = ({ gameId, onModalClose }: GameModalProps) => {
         <CardShadow className='shadow' onClick={exitDetailhandler}>
           <Detail layoutId={gameIdString}>
             <Stats>
-              <motion.h3 layoutId={`title ${gameIdString}`}>
-                {game.name}
-              </motion.h3>
+              <GameHeader>
+                <motion.h3 layoutId={`title ${gameIdString}`}>
+                  {game.name}
+                </motion.h3>
+                <GameLink to={`/games/${gameId}`}>View More</GameLink>
+              </GameHeader>
               <Info>
                 <RatingSection>
                   <StarRating rating={game.rating || 0} />
@@ -77,6 +80,29 @@ const GameModal = ({ gameId, onModalClose }: GameModalProps) => {
     </>
   );
 };
+
+const GameHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+`;
+
+const GameLink = styled(Link)`
+  text-decoration: none;
+  background-color: #ff7676;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: medium;
+  transition: background-color 0.3s ease;
+  color: white;
+  text-align: center;
+
+  &:hover {
+    background-color: #ff5656;
+  }
+`;
 
 const CardShadow = styled(motion.div)`
   width: 100%;
@@ -130,7 +156,6 @@ const Stats = styled(motion.div)`
 
   h3 {
     font-size: 2rem;
-    text-align: center;
   }
 
   @media (max-width: 768px) {
