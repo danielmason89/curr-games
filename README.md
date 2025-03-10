@@ -104,7 +104,7 @@
 
 <!-- GETTING STARTED -->
 
-## Getting Started - Curr🔥games
+## Getting Started
 
 <h3>Prerequisites</h3>
 
