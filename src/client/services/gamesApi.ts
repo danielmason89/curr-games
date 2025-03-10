@@ -7,6 +7,7 @@ import {
   getNextYearDate,
   buildQueryString,
 } from '@/shared/utils';
+import { filterNsfwGames } from '@/server/utils/nsfwFilter';
 
 // Define common query parameters
 const COMMON_PAGE_SIZE = 10;
@@ -71,6 +72,7 @@ export const gamesApi = createApi({
     getGames: builder.query<GamesResponse, GameQueryParams | void>({
       query: params =>
         params ? `/games?${buildQueryString(params)}` : '/games',
+      transformResponse: filterNsfwGames,
     }),
 
     // Get a single game by ID
@@ -81,22 +83,26 @@ export const gamesApi = createApi({
     // Get popular games from the last year
     getPopularGames: builder.query<GamesResponse, void>({
       query: () => `/games?${buildQueryString(QUERY_PRESETS.popular)}`,
+      transformResponse: filterNsfwGames,
     }),
 
     // Get upcoming games for the next year
     getUpcomingGames: builder.query<GamesResponse, void>({
       query: () => `/games?${buildQueryString(QUERY_PRESETS.upcoming)}`,
+      transformResponse: filterNsfwGames,
     }),
 
     // Get new releases from the last year
     getNewGames: builder.query<GamesResponse, void>({
       query: () => `/games?${buildQueryString(QUERY_PRESETS.new)}`,
+      transformResponse: filterNsfwGames,
     }),
 
     // Search games by term
     searchGames: builder.query<GamesResponse, string>({
       query: searchTerm =>
         `/games?${buildQueryString(QUERY_PRESETS.search(searchTerm))}`,
+      transformResponse: filterNsfwGames,
     }),
   }),
 });

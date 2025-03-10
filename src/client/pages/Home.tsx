@@ -12,7 +12,7 @@ import { GamesList } from '../components/GamesList';
 
 // Animations & styling
 import styled from 'styled-components';
-import { motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 import { fadeIn } from '@/client/animations';
 
 export default function Home() {
@@ -25,11 +25,10 @@ export default function Home() {
       variants={fadeIn}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      <GamesList title="Popular Games"  {...popular} />
-      <GamesList title="Upcoming Games"  {...upcoming} />
-      <GamesList title="New Games"  {...newGames} />
+      exit={{ opacity: 0 }}>
+      <GamesList title='Popular Games' {...popular} />
+      <GamesList title='Upcoming Games' {...upcoming} />
+      <GamesList title='New Games' {...newGames} />
     </GameList>
   );
 }

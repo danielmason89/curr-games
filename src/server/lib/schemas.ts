@@ -52,6 +52,15 @@ const ratingSchema = z.object({
   percent: z.number(),
 });
 
+const tagSchema = z.object({
+  id: z.number(),
+  name: z.string(),
+  slug: z.string(),
+  language: z.string(),
+  games_count: z.number(),
+  image_background: z.string(),
+});
+
 // Base game schema (for list endpoint)
 export const gameSchema = z
   .object({
@@ -71,6 +80,7 @@ export const gameSchema = z
     metacritic: z.number().nullable().optional(),
     playtime: z.number().optional(),
     suggestions_count: z.number().optional(),
+    tags: z.array(tagSchema).optional(),
     updated: z.string(),
     esrb_rating: esrbRatingSchema.optional(),
     platforms: z.array(platformDetailSchema).nullable().optional(),
@@ -139,7 +149,7 @@ export const gameQuerySchema = z.object({
   developers: z.string().optional(),
   publishers: z.string().optional(),
   genres: z.string().optional(),
-  tags: z.string().optional(),
+  tags: z.array(tagSchema).optional(),
   creators: z.string().optional(),
   dates: z.string().optional(),
   updated: z.string().optional(),
