@@ -27,7 +27,7 @@
 ### 🚀 About the Project 🚀
 
   <div align="center">
-    <p>An Avid Video Games Platform App</p>
+    <p>An Avid Video Games Platform</p>
     <p>An app created to help with keeping track of busy video games release schedule, and to search for upcoming, popular, new, and released video-game games, that you may have missed.  
     </div>
     <br />
