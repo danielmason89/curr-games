@@ -113,6 +113,13 @@ const CardShadow = styled(motion.div)`
   top: 0;
   left: 0;
   z-index: 5;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+
+  @media (min-width: 768px) {
+    padding: 2rem;
+  }
 
   &::-webkit-scrollbar {
     width: 0.5rem;
@@ -128,22 +135,27 @@ const CardShadow = styled(motion.div)`
 `;
 
 const Detail = styled(motion.div)`
-  width: 80%;
+  width: 100%;
+  max-width: 1200px;
   border-radius: 1rem;
-  padding: 2rem 5rem;
   background: white;
-  position: absolute;
-  left: 10%;
   color: black;
   z-index: 10;
-  img {
-    width: 100%;
+  padding: 1rem;
+  margin: 0;
+
+  @media (min-width: 768px) {
+    padding: 2rem;
+    margin: 2rem 0;
+    width: 90%;
   }
 
-  @media (max-width: 768px) {
-    padding: 2rem 2rem;
-    width: 90%;
-    left: 5%;
+  @media (min-width: 1024px) {
+    padding: 2rem 5rem;
+  }
+
+  img {
+    width: 100%;
   }
 `;
 
