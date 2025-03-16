@@ -17,6 +17,7 @@ const ErrorContainer = styled.div`
 
   h2 {
     margin-top: 1rem;
+    padding: 1rem;
     color: #e63946;
   }
 
