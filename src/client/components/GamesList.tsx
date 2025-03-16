@@ -69,6 +69,7 @@ export const GameList = styled(motion.div)`
     padding: 5rem 2rem;
   }
   @media (max-width: 768px) {
+    padding: 0rem 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -84,14 +85,14 @@ export const GameList = styled(motion.div)`
 export const Games = styled(motion.ul)`
   display: grid;
   justify-content: flex-start;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-column-gap: 3rem;
   grid-row-gap: 5rem;
 
   @media (max-width: 768px) {
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 4fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 2rem;
     text-align: center;
   }
