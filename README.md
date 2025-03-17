@@ -218,8 +218,6 @@ You can also simply open an issue with the tag "enhancement".
 [Vite-url]: https://vite.dev/
 [Motion]: https://img.shields.io/badge/Framer-05F?logo=framer&logoColor=fff&style=flat
 [Motion-url]: https://motion.dev/
-[Vite]: https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=fff&style=flat
-[Vite-url]: https://vite.dev/
 [Redux]: https://img.shields.io/badge/Redux-764ABC?logo=redux&logoColor=fff&style=flat
 [Redux-url]: https://redux.js.org/
 [Axios]: https://img.shields.io/badge/Axios-5A29E4?logo=axios&logoColor=fff&style=flat
