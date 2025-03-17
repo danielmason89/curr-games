@@ -32,7 +32,7 @@
     </div>
     <br />
     <br />
-    <a href="https://curr-games.netlify.app/">View Live</a>
+    <a href="https://curr-games.onrender.com/">View Live</a>
     &middot;
     <a href="https://github.com/danielmason89/curr-games/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     &middot;
