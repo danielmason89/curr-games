@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { smallImage } from '../utils/image';
@@ -11,11 +11,17 @@ import { Link } from 'react-router';
 
 interface GameModalProps {
   gameId: GameDetails['id'];
+  stringPathId?: string;
   onModalClose: () => void;
 }
 
-const GameModal = ({ gameId, onModalClose }: GameModalProps) => {
+const GameModal = ({
+  gameId,
+  stringPathId = '',
+  onModalClose,
+}: GameModalProps) => {
   const { data: game, isLoading } = useGetGameByIdQuery(gameId);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const exitDetailhandler = (e: React.MouseEvent<HTMLDivElement>) => {
     const element = e.target as HTMLDivElement;
@@ -25,21 +31,34 @@ const GameModal = ({ gameId, onModalClose }: GameModalProps) => {
     }
   };
 
-  if (isLoading || !game) {
-    return null;
-  }
-
-  const gameIdString = game.id!.toString();
-  const parsedDescription = stripHtmlTags(game.description ?? '');
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
 
   return (
-    <>
-      {!isLoading && game && (
-        <CardShadow className='shadow' onClick={exitDetailhandler}>
-          <Detail layoutId={gameIdString}>
+    <CardShadow
+      className='shadow'
+      onClick={exitDetailhandler}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}>
+      <Detail
+        layoutId={stringPathId}
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 20, opacity: 0 }}
+        transition={{ duration: 0.3 }}>
+        {isLoading || !game ? (
+          <LoadingContainer>
+            <LoadingSpinner />
+            <p>Loading game details...</p>
+          </LoadingContainer>
+        ) : (
+          <>
             <Stats>
               <GameHeader>
-                <motion.h3 layoutId={`title ${gameIdString}`}>
+                <motion.h3 layoutId={`title ${stringPathId}`}>
                   {game.name}
                 </motion.h3>
                 <GameLink to={`/games/${gameId}`}>View More</GameLink>
@@ -56,28 +75,24 @@ const GameModal = ({ gameId, onModalClose }: GameModalProps) => {
               </Info>
             </Stats>
             <Media>
-              <motion.img
-                layoutId={`image ${gameIdString}`}
-                src={smallImage(game.background_image ?? '', 1280)}
-                alt='Game Screen Screenshot'
-              />
+              <ImageContainer>
+                {!imageLoaded && <ImageSkeleton />}
+                <motion.img
+                  layoutId={`image ${stringPathId}`}
+                  src={smallImage(game.background_image ?? '', 1280)}
+                  alt='Game Screen Screenshot'
+                  onLoad={handleImageLoad}
+                  style={{ opacity: imageLoaded ? 1 : 0 }}
+                />
+              </ImageContainer>
             </Media>
             <Description>
-              <p>{parsedDescription}</p>
+              <p>{stripHtmlTags(game.description ?? '')}</p>
             </Description>
-            {/* <Gallery>
-              {screen.results.map((screen: Screenshot) => (
-                <img
-                  key={screen.id}
-                  src={smallImage(screen.image, 1280)}
-                  alt={screen.image}
-                />
-              ))}
-            </Gallery> */}
-          </Detail>
-        </CardShadow>
-      )}
-    </>
+          </>
+        )}
+      </Detail>
+    </CardShadow>
   );
 };
 
@@ -107,43 +122,68 @@ const GameLink = styled(Link)`
 const CardShadow = styled(motion.div)`
   width: 100%;
   min-height: 100vh;
-  overflow-y: scroll;
+  overflow-y: hidden;
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;
   z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 
-  &::-webkit-scrollbar {
-    width: 0.5rem;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: #ff7676;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: white;
+  @media (min-width: 768px) {
+    padding: 2rem;
   }
 `;
 
 const Detail = styled(motion.div)`
-  width: 80%;
+  width: 100%;
+  max-width: 1200px;
   border-radius: 1rem;
-  padding: 2rem 5rem;
   background: white;
-  position: absolute;
-  left: 10%;
   color: black;
   z-index: 10;
-  img {
-    width: 100%;
+  padding: 1rem;
+  margin: 0;
+  position: relative;
+  height: 85vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* Hide default scrollbar for WebKit browsers */
+  &::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
   }
 
-  @media (max-width: 768px) {
-    padding: 2rem 2rem;
+  &::-webkit-scrollbar-thumb {
+    background-color: #ff7676;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 4px;
+    border-radius: 4px;
+  }
+
+  /* For Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #ff7676 transparent;
+
+  @media (min-width: 768px) {
+    padding: 2rem;
     width: 90%;
-    left: 5%;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 2rem 5rem;
+  }
+
+  img {
+    width: 100%;
   }
 `;
 
@@ -220,13 +260,66 @@ const Description = styled(motion.div)`
   }
 `;
 
-// const Gallery = styled(motion.div)`
-//   display: grid;
-//   grid-gap: 1rem;
-//   img {
-//     width: 100%;
-//     border-radius: 0.5rem;
-//   }
-// `;
+const LoadingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  gap: 1.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  p {
+    font-size: 1.2rem;
+    color: #333;
+  }
+`;
+
+const LoadingSpinner = styled.div`
+  width: 60px;
+  height: 60px;
+  border: 6px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #ff7676;
+  animation: spin 1s ease-in-out infinite;
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`;
+
+const ImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+`;
+
+const ImageSkeleton = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+`;
 
 export default GameModal;
