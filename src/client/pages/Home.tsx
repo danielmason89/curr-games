@@ -13,7 +13,7 @@ import { GamesList } from '../components/GamesList';
 // Animations & styling
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { fadeIn } from '@/client/animations';
+import { fadeIn } from '@/client/utils/animations';
 
 export default function Home() {
   const popular = useGetPopularGamesQuery();
@@ -39,6 +39,7 @@ const GameList = styled(motion.div)`
     padding: 5rem 2rem;
   }
   @media (max-width: 768px) {
+    padding: 0rem 1rem;
     display: flex;
     align-items: center;
     justify-content: center;

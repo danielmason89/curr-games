@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import logo from '../assets/logo.svg';
-import { fadeIn } from '../animations';
+import logo from '@/client/assets/logo.svg';
+import { fadeIn } from '@/client/utils/animations';
 import { NavLink } from 'react-router';
-import {SearchBar} from './SearchBar';
+import { SearchBar } from './SearchBar';
 
 const MotionNavLink = motion.create(NavLink);
 
@@ -63,8 +63,6 @@ const StyledNav = styled(motion.nav)`
       box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
     }
   }
-
-  
 `;
 
 const Logo = styled(MotionNavLink)`
