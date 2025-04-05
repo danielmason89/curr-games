@@ -42,7 +42,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://curr-games.onrender.com/)
 
-[product-screenshot]: https://media.licdn.com/dms/image/v2/D4E2DAQEDCsnJwm4ZNg/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1718855069526?e=1742187600&v=beta&t=MiXrctEdmtWF6BqZDb17haW02c2DCQWXJZP98J04eYY
+[product-screenshot]: https://github.com/danielmason89/curr-games/blob/0e2280dbb20662a0f6a963a8c7d419509a2ccd21/curr-games.jpg
 
 <!-- TABLE OF CONTENTS -->
 <details>
