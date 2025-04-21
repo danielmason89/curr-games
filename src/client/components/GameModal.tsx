@@ -487,44 +487,44 @@ const ModalSkeleton = () => {
   return (
     <>
       <ModalHeaderSkeleton>
-        <TitleSkeleton className='title-skeleton' />
-        <ReleaseDateSkeleton className='date-skeleton' />
+        <TitleSkeleton />
+        <ReleaseDateSkeleton />
       </ModalHeaderSkeleton>
 
       <DetailsButtonSkeletonWrapper>
-        <div className='button-skeleton'></div>
+        <ButtonSkeletonElement />
       </DetailsButtonSkeletonWrapper>
 
       <MediaSectionSkeleton>
-        <div className='image-skeleton'></div>
+        <ImageSkeletonElement />
       </MediaSectionSkeleton>
 
       <InfoGridSkeleton>
         <InfoCardSkeleton>
-          <CardTitleSkeleton className='card-title-skeleton' />
-          <div className='card-content-skeleton'></div>
+          <CardTitleSkeleton />
+          <CardContentSkeletonElement />
         </InfoCardSkeleton>
         <InfoCardSkeleton>
-          <CardTitleSkeleton className='card-title-skeleton' />
-          <div className='card-content-skeleton'></div>
+          <CardTitleSkeleton />
+          <CardContentSkeletonElement />
         </InfoCardSkeleton>
         <InfoCardSkeleton>
-          <CardTitleSkeleton className='card-title-skeleton' />
-          <div className='card-content-skeleton'></div>
+          <CardTitleSkeleton />
+          <CardContentSkeletonElement />
         </InfoCardSkeleton>
       </InfoGridSkeleton>
 
       <DescriptionSectionSkeleton>
-        <CardTitleSkeleton className='card-title-skeleton' />
-        <div className='description-line'></div>
-        <div className='description-line'></div>
-        <div className='description-line'></div>
-        <div className='description-line'></div>
-        <div className='description-line' style={{ width: '75%' }}></div>
+        <CardTitleSkeleton />
+        <DescriptionLineElement />
+        <DescriptionLineElement />
+        <DescriptionLineElement />
+        <DescriptionLineElement />
+        <DescriptionLineElement style={{ width: '75%' }} />
       </DescriptionSectionSkeleton>
 
       <ButtonSkeleton>
-        <div className='button-skeleton'></div>
+        <ButtonSkeletonElement />
       </ButtonSkeleton>
     </>
   );
@@ -535,29 +535,25 @@ const ModalHeaderSkeleton = styled.div`
   flex-direction: column;
   gap: 0.75rem;
   padding-right: 2.5rem;
-
-  .title-skeleton {
-    height: 2.25rem;
-    width: 70%;
-    border-radius: var(--radius-sm);
-    background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
-    background-size: 200% 100%;
-    animation: shimmer 1.5s infinite;
-  }
-
-  .date-skeleton {
-    height: 1rem;
-    width: 30%;
-    border-radius: var(--radius-sm);
-    background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
-    background-size: 200% 100%;
-    animation: shimmer 1.5s infinite;
-  }
 `;
 
-const TitleSkeleton = styled.div``;
+const TitleSkeleton = styled.div`
+  height: 2.25rem;
+  width: 70%;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+`;
 
-const ReleaseDateSkeleton = styled.div``;
+const ReleaseDateSkeleton = styled.div`
+  height: 1rem;
+  width: 30%;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+`;
 
 const MediaSectionSkeleton = styled.div`
   width: 100%;
@@ -565,14 +561,14 @@ const MediaSectionSkeleton = styled.div`
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
+`;
 
-  .image-skeleton {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
-    background-size: 200% 100%;
-    animation: shimmer 1.5s infinite;
-  }
+const ImageSkeletonElement = styled.div`
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
 `;
 
 const InfoGridSkeleton = styled.div`
@@ -588,71 +584,62 @@ const InfoCardSkeleton = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-
-  .card-title-skeleton {
-    height: 1.25rem;
-    width: 50%;
-    border-radius: var(--radius-sm);
-    background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
-    background-size: 200% 100%;
-    animation: shimmer 1.5s infinite;
-  }
-
-  .card-content-skeleton {
-    height: 3rem;
-    width: 100%;
-    border-radius: var(--radius-sm);
-    background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
-    background-size: 200% 100%;
-    animation: shimmer 1.5s infinite;
-  }
 `;
 
-const CardTitleSkeleton = styled.div``;
+const CardTitleSkeleton = styled.div`
+  height: 1.25rem;
+  width: 50%;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+`;
+
+const CardContentSkeletonElement = styled.div`
+  height: 3rem;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+`;
 
 const DescriptionSectionSkeleton = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
 
-  .card-title-skeleton {
-    height: 1.25rem;
+  ${CardTitleSkeleton} {
     width: 15%;
-    border-radius: var(--radius-sm);
-    background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
-    background-size: 200% 100%;
-    animation: shimmer 1.5s infinite;
   }
+`;
 
-  .description-line {
-    height: 1rem;
-    width: 100%;
-    border-radius: var(--radius-sm);
-    background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
-    background-size: 200% 100%;
-    animation: shimmer 1.5s infinite;
-    margin-bottom: 0.5rem;
-  }
+const DescriptionLineElement = styled.div`
+  height: 1rem;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  margin-bottom: 0.5rem;
 `;
 
 const ButtonSkeleton = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 0.5rem;
+`;
 
-  .button-skeleton {
-    height: 2.6rem;
-    width: 200px;
-    border-radius: var(--radius-md);
-    background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
-    background-size: 200% 100%;
-    animation: shimmer 1.5s infinite;
-  }
+const ButtonSkeletonElement = styled.div`
+  height: 2.6rem;
+  width: 200px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
 
   @media (max-width: 600px) {
-    .button-skeleton {
-      width: 100%;
-    }
+    width: 100%;
   }
 `;
 
@@ -660,13 +647,9 @@ const DetailsButtonSkeletonWrapper = styled.div`
   display: flex;
   margin-bottom: 1rem;
 
-  .button-skeleton {
+  ${ButtonSkeletonElement} {
     height: 2.2rem;
     width: 170px;
-    border-radius: var(--radius-md);
-    background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
-    background-size: 200% 100%;
-    animation: shimmer 1.5s infinite;
 
     @media (max-width: 768px) {
       width: 100%;
