@@ -1,7 +1,15 @@
 import type { GamesResponse } from '../lib/schemas.js';
 
-const nsfwTags = ['nsfw', 'erotic', 'hentai', 'sexual content'];
-const nsfwKeywords = ['sex', 'adult', 'erotic', 'hentai', 'sexual', 'nsfw'];
+const nsfwTags = ['nsfw', 'erotic', 'hentai', 'sexual content', 'nudity'];
+const nsfwKeywords = [
+  'sex',
+  'adult',
+  'erotic',
+  'hentai',
+  'sexual',
+  'nsfw',
+  'nudity',
+];
 
 export const filterNsfwGames = (res: GamesResponse): GamesResponse => {
   return {
