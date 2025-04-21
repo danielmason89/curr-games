@@ -107,7 +107,7 @@ export const platformFamilyMap: Record<PlatformFamilyKey, PlatformIconKey> = {
   'game-boy': 'nintendo',
   snes: 'nintendo',
   nes: 'nintendo',
-  ios: 'ios',
+  ios: 'mac',
   android: 'android',
   macos: 'mac',
   macintosh: 'mac',
