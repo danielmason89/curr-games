@@ -7,12 +7,14 @@ import Game from './Game';
 import { motion } from 'framer-motion';
 import { GameListSkeleton } from './GameListSkeleton';
 import ErrorMessage from './ErrorMessage';
+import { Link } from 'react-router';
 
 interface GamesListProps {
   data?: GamesResponse;
   isLoading: boolean;
   error?: FetchBaseQueryError | SerializedError;
   title?: string;
+  viewMoreLink?: string;
 }
 
 export const GamesList = ({
@@ -20,6 +22,7 @@ export const GamesList = ({
   isLoading,
   error,
   title,
+  viewMoreLink,
 }: GamesListProps) => {
   if (error) {
     return (
@@ -35,7 +38,7 @@ export const GamesList = ({
     return <GameListSkeleton title={title} />;
   }
 
-  if (!data?.results.length) {
+  if (!data?.results.length && !isLoading) {
     return (
       <ErrorMessage
         title='No Results Found'
@@ -50,7 +53,14 @@ export const GamesList = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}>
-      {title && <SectionTitle>{title}</SectionTitle>}
+      {title && (
+        <TitleContainer>
+          <SectionTitle>{title}</SectionTitle>
+          {viewMoreLink && (
+            <ViewMoreLink to={viewMoreLink}>View More</ViewMoreLink>
+          )}
+        </TitleContainer>
+      )}
       <GamesGrid>
         {data?.results.map(game => (
           <Game
@@ -80,8 +90,27 @@ export const GameListContainer = styled(motion.div)`
   }
 `;
 
-export const SectionTitle = styled.h2`
+export const TitleContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
   margin-block: 3rem;
+  width: 100%;
+`;
+
+const ViewMoreLink = styled(Link)`
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+`;
+
+export const SectionTitle = styled.h2`
   position: relative;
   display: inline-block;
 
@@ -97,7 +126,6 @@ export const SectionTitle = styled.h2`
   }
 
   @media (max-width: 768px) {
-    margin-block: 1.5rem;
     font-size: 1.5rem;
 
     &:after {
@@ -128,6 +156,3 @@ export const GamesGrid = styled(motion.ul)`
     gap: 1rem;
   }
 `;
-
-// Export Games for backward compatibility
-export const Games = GamesGrid;

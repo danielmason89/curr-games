@@ -1,7 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { GameListContainer, Games, SectionTitle } from './GamesList';
+import {
+  GameListContainer,
+  GamesGrid,
+  SectionTitle,
+  TitleContainer,
+} from './GamesList';
 
 const GameSkeleton = () => {
   return (
@@ -30,8 +35,10 @@ export const GameListSkeleton = ({ title }: GameListSkeletonProps) => {
 
   return (
     <GameListContainer>
-      {title && <SectionTitle>{title}</SectionTitle>}
-      <Games>{skeletonItems}</Games>
+      <TitleContainer>
+        {title && <SectionTitle>{title}</SectionTitle>}
+      </TitleContainer>
+      <GamesGrid>{skeletonItems}</GamesGrid>
     </GameListContainer>
   );
 };
