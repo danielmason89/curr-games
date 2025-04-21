@@ -8,7 +8,7 @@ import type { GameDetails } from '@/shared/types';
 import { useGetGameByIdQuery } from '../hooks/useGamesApi';
 import { stripHtmlTags } from '../utils/stripHtmlTags';
 import { Link } from 'react-router';
-import { FaTimes } from 'react-icons/fa';
+import { FaTimes, FaExternalLinkAlt } from 'react-icons/fa';
 
 interface GameModalProps {
   gameId: GameDetails['id'];
@@ -121,6 +121,9 @@ const GameModal = ({ gameId, onModalClose }: GameModalProps) => {
               <TitleSection>
                 <TitleLink to={`/games/${gameId}`}>
                   <h2>{game.name}</h2>
+                  <TitleLinkIcon>
+                    <FaExternalLinkAlt />
+                  </TitleLinkIcon>
                 </TitleLink>
                 <ReleaseDate>
                   <CardTitle>Release Date: </CardTitle>
@@ -134,6 +137,12 @@ const GameModal = ({ gameId, onModalClose }: GameModalProps) => {
                 </ReleaseDate>
               </TitleSection>
             </ModalHeader>
+
+            <DetailsButtonWrapper>
+              <DetailsButton to={`/games/${gameId}`}>
+                View Full Details
+              </DetailsButton>
+            </DetailsButtonWrapper>
 
             <MediaSection>
               <GameImageContainer>
@@ -183,12 +192,6 @@ const GameModal = ({ gameId, onModalClose }: GameModalProps) => {
               <CardTitle>About</CardTitle>
               <Description>{stripHtmlTags(game.description ?? '')}</Description>
             </DescriptionSection>
-
-            <DetailsButtonContainer>
-              <DetailsButton to={`/games/${gameId}`}>
-                View Full Details
-              </DetailsButton>
-            </DetailsButtonContainer>
           </>
         )}
       </DetailCard>
@@ -199,13 +202,25 @@ const GameModal = ({ gameId, onModalClose }: GameModalProps) => {
 const TitleLink = styled(Link)`
   text-decoration: none;
   color: var(--text-dark);
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 
   &:hover {
     h2 {
       color: var(--primary);
-      text-decoration: underline;
     }
+  }
+`;
+
+const TitleLinkIcon = styled.span`
+  font-size: 0.9rem;
+  color: var(--primary);
+  opacity: 0.8;
+  margin-top: 0.25rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
   }
 `;
 
@@ -276,8 +291,8 @@ const CloseButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   transition: all 0.2s ease;
 
@@ -289,16 +304,14 @@ const CloseButton = styled.button`
   @media (max-width: 768px) {
     top: 0.75rem;
     right: 0.75rem;
-    font-size: 1rem;
-    width: 24px;
-    height: 24px;
   }
 `;
 
 const ModalHeader = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  padding-right: 2.5rem; /* Make space for close button */
 `;
 
 const TitleSection = styled.div`
@@ -308,6 +321,7 @@ const TitleSection = styled.div`
     font-size: 2rem;
     color: var(--text-dark);
     margin-bottom: 0.25rem;
+    display: inline;
   }
 
   @media (max-width: 768px) {
@@ -326,10 +340,9 @@ const ReleaseDate = styled.div`
   gap: 0.5rem;
 `;
 
-const DetailsButtonContainer = styled.div`
+const DetailsButtonWrapper = styled.div`
   display: flex;
-  justify-content: center;
-  margin-top: 0.5rem;
+  margin-bottom: 1rem;
 `;
 
 const DetailsButton = styled(Link)`
@@ -337,14 +350,12 @@ const DetailsButton = styled(Link)`
   background: linear-gradient(135deg, var(--primary), var(--primary-dark));
   color: white;
   text-decoration: none;
-  padding: 0.8rem 2rem;
+  padding: 0.6rem 1.25rem;
   border-radius: var(--radius-md);
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.95rem;
   white-space: nowrap;
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
+  transition: all 0.2s ease;
 
   &:hover {
     opacity: 0.95;
@@ -352,7 +363,9 @@ const DetailsButton = styled(Link)`
     color: white;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
     width: 100%;
     text-align: center;
   }
@@ -479,6 +492,10 @@ const ModalSkeleton = () => {
         <ReleaseDateSkeleton className='date-skeleton' />
       </ModalHeaderSkeleton>
 
+      <DetailsButtonSkeletonWrapper>
+        <div className='button-skeleton'></div>
+      </DetailsButtonSkeletonWrapper>
+
       <MediaSectionSkeleton>
         <div className='image-skeleton'></div>
       </MediaSectionSkeleton>
@@ -518,6 +535,7 @@ const ModalHeaderSkeleton = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  padding-right: 2.5rem;
 
   .title-skeleton {
     height: 2.25rem;
@@ -634,6 +652,24 @@ const ButtonSkeleton = styled.div`
 
   @media (max-width: 600px) {
     .button-skeleton {
+      width: 100%;
+    }
+  }
+`;
+
+const DetailsButtonSkeletonWrapper = styled.div`
+  display: flex;
+  margin-bottom: 1rem;
+
+  .button-skeleton {
+    height: 2.2rem;
+    width: 170px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+
+    @media (max-width: 768px) {
       width: 100%;
     }
   }
