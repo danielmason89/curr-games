@@ -46,9 +46,12 @@ export const GamesList = ({
   }
 
   return (
-    <GameList>
-      {title && <h2>{title}</h2>}
-      <Games>
+    <GameListContainer
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}>
+      {title && <SectionTitle>{title}</SectionTitle>}
+      <GamesGrid>
         {data?.results.map(game => (
           <Game
             key={game.id}
@@ -58,42 +61,71 @@ export const GamesList = ({
             image={game.background_image}
           />
         ))}
-      </Games>
-    </GameList>
+      </GamesGrid>
+    </GameListContainer>
   );
 };
 
-export const GameList = styled(motion.div)`
-  padding: 0rem 5rem;
-  h2 {
-    padding: 5rem 2rem;
-  }
+export const GameListContainer = styled(motion.div)`
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  width: 100%;
+  padding-inline: 2rem;
+
   @media (max-width: 768px) {
-    padding: 0rem 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-flow: column nowrap;
-    h2 {
-      font-size: 1.25rem;
-      text-align: center;
-      padding: 1rem 2rem;
+    padding-inline: 1rem;
+  }
+`;
+
+export const SectionTitle = styled.h2`
+  margin-block: 3rem;
+  position: relative;
+  display: inline-block;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 3px;
+  }
+
+  @media (max-width: 768px) {
+    margin-block: 1.5rem;
+    font-size: 1.5rem;
+
+    &:after {
+      width: 32px;
+      height: 2px;
     }
   }
 `;
 
-export const Games = styled(motion.ul)`
+export const GamesGrid = styled(motion.ul)`
   display: grid;
-  justify-content: flex-start;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  grid-column-gap: 3rem;
-  grid-row-gap: 5rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.75rem;
+  list-style: none;
+  padding: 0;
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
 
   @media (max-width: 768px) {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 2rem;
-    text-align: center;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
   }
 `;
+
+// Export Games for backward compatibility
+export const Games = GamesGrid;
