@@ -9,8 +9,8 @@ import {
 } from '@/shared/utils';
 
 // Define common query parameters
-const HOME_PAGE_SIZE = 6;
-const SEARCH_PAGE_SIZE = 20;
+export const HOME_PAGE_SIZE = 6;
+export const SEARCH_PAGE_SIZE = 18;
 
 /**
  * Predefined query parameter configurations for different game lists.
@@ -37,10 +37,6 @@ export const QUERY_PRESETS = {
     ordering: '-released',
     page_size: HOME_PAGE_SIZE,
   },
-  search: (searchTerm: string) => ({
-    search: searchTerm,
-    page_size: SEARCH_PAGE_SIZE,
-  }),
 } as const;
 
 /**
@@ -92,12 +88,6 @@ export const gamesApi = createApi({
     // Get new releases from the last year
     getNewGames: builder.query<GamesResponse, void>({
       query: () => `/games?${buildQueryString(QUERY_PRESETS.new)}`,
-    }),
-
-    // Search games by term
-    searchGames: builder.query<GamesResponse, string>({
-      query: searchTerm =>
-        `/games?${buildQueryString(QUERY_PRESETS.search(searchTerm))}`,
     }),
   }),
 });

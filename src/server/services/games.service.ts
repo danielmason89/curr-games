@@ -28,6 +28,7 @@ import {
 import logger from '@/server/config/logger.js';
 import type { GameQueryParams } from '@/shared/utils.js';
 import { filterNsfwGames } from '../utils/nsfwFilter.js';
+import { SEARCH_PAGE_SIZE } from '@/client/services/gamesApi.js';
 
 /**
  * Fetches a list of games from the RAWG API.
@@ -54,7 +55,9 @@ import { filterNsfwGames } from '../utils/nsfwFilter.js';
 export const getGames = async (params?: GameQueryParams) => {
   try {
     logger.info('Fetching games from RAWG API', { params });
-    const pageSize = params?.page_size ? Number(params.page_size) : 20;
+    const pageSize = params?.page_size
+      ? Number(params.page_size)
+      : SEARCH_PAGE_SIZE;
 
     const adjustedParams = {
       ...params,
