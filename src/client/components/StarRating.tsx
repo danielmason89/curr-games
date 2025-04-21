@@ -37,7 +37,6 @@ const StyledStars = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   gap: 0.25rem;
-  width: 100%;
 
   h3 {
     font-size: 0.875rem;

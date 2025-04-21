@@ -114,10 +114,7 @@ const GameModal = ({ gameId, onModalClose }: GameModalProps) => {
         </CloseButton>
 
         {isLoading || !game ? (
-          <LoadingContainer>
-            <LoadingSpinner />
-            <LoadingText>Loading game details...</LoadingText>
-          </LoadingContainer>
+          <ModalSkeleton />
         ) : (
           <>
             <ModalHeader>
@@ -126,6 +123,7 @@ const GameModal = ({ gameId, onModalClose }: GameModalProps) => {
                   <h2>{game.name}</h2>
                 </TitleLink>
                 <ReleaseDate>
+                  <CardTitle>Release Date: </CardTitle>
                   {game.released
                     ? new Date(game.released).toLocaleDateString('en-US', {
                         year: 'numeric',
@@ -319,10 +317,13 @@ const TitleSection = styled.div`
   }
 `;
 
-const ReleaseDate = styled.p`
+const ReleaseDate = styled.div`
   font-size: 0.95rem;
   color: var(--text-medium);
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 `;
 
 const DetailsButtonContainer = styled.div`
@@ -397,13 +398,13 @@ const CardTitle = styled.h3`
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-dark);
-  margin: 0 0 0.25rem 0;
+  margin: 0;
 `;
 
 const RatingWrapper = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
 `;
 
@@ -450,36 +451,6 @@ const Description = styled.p`
   }
 `;
 
-const LoadingContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 2rem;
-  gap: 1.5rem;
-`;
-
-const LoadingText = styled.p`
-  font-size: 1.1rem;
-  color: var(--text-medium);
-  text-align: center;
-`;
-
-const LoadingSpinner = styled.div`
-  width: 50px;
-  height: 50px;
-  border: 4px solid rgba(194, 83, 83, 0.1);
-  border-radius: 50%;
-  border-top-color: var(--primary);
-  animation: spin 1s linear infinite;
-
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-`;
-
 const ImageSkeleton = styled.div`
   position: absolute;
   top: 0;
@@ -496,6 +467,174 @@ const ImageSkeleton = styled.div`
     }
     100% {
       background-position: 200% 0;
+    }
+  }
+`;
+
+const ModalSkeleton = () => {
+  return (
+    <>
+      <ModalHeaderSkeleton>
+        <TitleSkeleton className='title-skeleton' />
+        <ReleaseDateSkeleton className='date-skeleton' />
+      </ModalHeaderSkeleton>
+
+      <MediaSectionSkeleton>
+        <div className='image-skeleton'></div>
+      </MediaSectionSkeleton>
+
+      <InfoGridSkeleton>
+        <InfoCardSkeleton>
+          <CardTitleSkeleton className='card-title-skeleton' />
+          <div className='card-content-skeleton'></div>
+        </InfoCardSkeleton>
+        <InfoCardSkeleton>
+          <CardTitleSkeleton className='card-title-skeleton' />
+          <div className='card-content-skeleton'></div>
+        </InfoCardSkeleton>
+        <InfoCardSkeleton>
+          <CardTitleSkeleton className='card-title-skeleton' />
+          <div className='card-content-skeleton'></div>
+        </InfoCardSkeleton>
+      </InfoGridSkeleton>
+
+      <DescriptionSectionSkeleton>
+        <CardTitleSkeleton className='card-title-skeleton' />
+        <div className='description-line'></div>
+        <div className='description-line'></div>
+        <div className='description-line'></div>
+        <div className='description-line'></div>
+        <div className='description-line' style={{ width: '75%' }}></div>
+      </DescriptionSectionSkeleton>
+
+      <ButtonSkeleton>
+        <div className='button-skeleton'></div>
+      </ButtonSkeleton>
+    </>
+  );
+};
+
+const ModalHeaderSkeleton = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  .title-skeleton {
+    height: 2.25rem;
+    width: 70%;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  .date-skeleton {
+    height: 1rem;
+    width: 30%;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+`;
+
+const TitleSkeleton = styled.div``;
+
+const ReleaseDateSkeleton = styled.div``;
+
+const MediaSectionSkeleton = styled.div`
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+
+  .image-skeleton {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+`;
+
+const InfoGridSkeleton = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+`;
+
+const InfoCardSkeleton = styled.div`
+  background: var(--bg-off);
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  .card-title-skeleton {
+    height: 1.25rem;
+    width: 50%;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  .card-content-skeleton {
+    height: 3rem;
+    width: 100%;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+`;
+
+const CardTitleSkeleton = styled.div``;
+
+const DescriptionSectionSkeleton = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  .card-title-skeleton {
+    height: 1.25rem;
+    width: 15%;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  .description-line {
+    height: 1rem;
+    width: 100%;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    margin-bottom: 0.5rem;
+  }
+`;
+
+const ButtonSkeleton = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+
+  .button-skeleton {
+    height: 2.6rem;
+    width: 200px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(90deg, #f0f0f0 0%, #f8f8f8 50%, #f0f0f0 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @media (max-width: 600px) {
+    .button-skeleton {
+      width: 100%;
     }
   }
 `;
