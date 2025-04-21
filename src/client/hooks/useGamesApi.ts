@@ -10,5 +10,4 @@ export const {
   useGetPopularGamesQuery,
   useGetUpcomingGamesQuery,
   useGetNewGamesQuery,
-  useSearchGamesQuery,
 } = gamesApi;
