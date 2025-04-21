@@ -254,7 +254,6 @@ const DetailCard = styled(motion.div)`
   flex-direction: column;
   gap: 1.5rem;
 
-  /* Scrollbar styling */
   scrollbar-width: thin;
   scrollbar-color: var(--primary-light) transparent;
 
@@ -311,7 +310,7 @@ const ModalHeader = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-right: 2.5rem; /* Make space for close button */
+  padding-right: 2.5rem;
 `;
 
 const TitleSection = styled.div`
