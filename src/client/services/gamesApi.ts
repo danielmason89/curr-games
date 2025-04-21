@@ -10,7 +10,8 @@ import {
 import { filterNsfwGames } from '@/server/utils/nsfwFilter';
 
 // Define common query parameters
-const COMMON_PAGE_SIZE = 10;
+const HOME_PAGE_SIZE = 6;
+const SEARCH_PAGE_SIZE = 20;
 
 /**
  * Predefined query parameter configurations for different game lists.
@@ -25,21 +26,21 @@ export const QUERY_PRESETS = {
   popular: {
     dates: `${getLastYearDate()},${getCurrentDate()}`,
     ordering: '-rating',
-    page_size: COMMON_PAGE_SIZE,
+    page_size: HOME_PAGE_SIZE,
   },
   upcoming: {
     dates: `${getCurrentDate()},${getNextYearDate()}`,
     ordering: '-added',
-    page_size: COMMON_PAGE_SIZE,
+    page_size: HOME_PAGE_SIZE,
   },
   new: {
     dates: `${getLastYearDate()},${getCurrentDate()}`,
     ordering: '-released',
-    page_size: COMMON_PAGE_SIZE,
+    page_size: HOME_PAGE_SIZE,
   },
   search: (searchTerm: string) => ({
     search: searchTerm,
-    page_size: COMMON_PAGE_SIZE,
+    page_size: SEARCH_PAGE_SIZE,
   }),
 } as const;
 
