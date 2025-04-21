@@ -2,9 +2,9 @@ import React from 'react';
 import { useSearchParams } from 'react-router';
 import { useSearchGamesQuery } from '@/client/hooks/useGamesApi';
 import { GameListContainer, GamesList } from '@/client/components/GamesList';
-import { fadeIn } from '../utils/animations';
+import { fadeIn } from '../utils/animations.js';
 
-export default function SearchResults() {
+export default function Games() {
   const [searchParams] = useSearchParams();
   const query = searchParams.get('q') || '';
   const title = `Search results for "${query}"`;

@@ -27,7 +27,7 @@ export function SearchBar() {
     e.preventDefault();
 
     if (textInput && textInput.trim()) {
-      navigate('/search?q=' + encodeURIComponent(textInput.trim()));
+      navigate('/games?q=' + encodeURIComponent(textInput.trim()));
     }
   };
 
