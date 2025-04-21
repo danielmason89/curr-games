@@ -71,7 +71,7 @@ const Tagline = styled.h2`
 
 const Logo = styled(MotionNavLink)`
   text-align: center;
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
