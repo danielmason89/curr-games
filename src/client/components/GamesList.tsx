@@ -71,6 +71,7 @@ export const GameListContainer = styled(motion.div)`
   max-width: 1400px;
   margin: 0 auto;
   margin-top: 2rem;
+  margin-bottom: 6rem;
   width: 100%;
   padding-inline: 2rem;
 
