@@ -35,7 +35,8 @@ const Nav = () => {
 };
 
 const StyledNav = styled(motion.nav)`
-  padding: 2rem 4rem 3rem;
+  padding-block: 4rem;
+  padding-inline: 2rem;
   text-align: center;
   background: linear-gradient(
     to bottom,
@@ -45,7 +46,12 @@ const StyledNav = styled(motion.nav)`
   border-bottom: 1px solid rgba(220, 100, 100, 0.1);
 
   @media (max-width: 768px) {
-    padding: 1.5rem 1rem 2rem;
+    padding-block: 3rem;
+    padding-inline: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    padding-block: 2rem;
   }
 `;
 
