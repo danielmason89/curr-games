@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 // Styling and Animation
 import styled from 'styled-components';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FaStar } from 'react-icons/fa';
 
 import { smallImage } from '../utils/image';
 import { popUp } from '../utils/animations';
@@ -14,12 +15,13 @@ interface GameProps {
   released: GameType['released'];
   image: GameType['background_image'];
   id: GameType['id'];
+  rating?: GameType['rating'];
 }
 
-const Game = ({ name, released, image: image, id }: GameProps) => {
+const Game = ({ name, released, image: image, id, rating }: GameProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
-  const stringPathId =
+  const stringPathId: string =
     id?.toString() || `game-${Math.random().toString(36).substr(2, 9)}`;
 
   const handleOpenModal = () => {
@@ -64,7 +66,15 @@ const Game = ({ name, released, image: image, id }: GameProps) => {
           </ImageContainer>
           <CardContent>
             <motion.h3 layoutId={`title ${stringPathId}`}>{name}</motion.h3>
-            <ReleaseDateTag>{formattedDate}</ReleaseDateTag>
+            <MetaInfoContainer>
+              <ReleaseDateTag>{formattedDate}</ReleaseDateTag>
+              {rating && rating > 0 ? (
+                <RatingTag>
+                  <StarIcon />
+                  <span>{rating.toFixed(1)}</span>
+                </RatingTag>
+              ) : null}
+            </MetaInfoContainer>
           </CardContent>
         </CardButton>
       </StyledGame>
@@ -167,6 +177,13 @@ const CardContent = styled.div`
   }
 `;
 
+const MetaInfoContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+`;
+
 const ReleaseDateTag = styled.div`
   display: inline-block;
   font-size: 0.8rem;
@@ -175,11 +192,40 @@ const ReleaseDateTag = styled.div`
   background-color: rgba(194, 83, 83, 0.1);
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius-sm);
-  align-self: flex-start;
 
   @media (max-width: 768px) {
     font-size: 0.7rem;
     padding: 0.2rem 0.4rem;
+  }
+`;
+
+const RatingTag = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #333;
+  background-color: rgba(255, 215, 0, 0.15);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+
+  span {
+    line-height: 1;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+  }
+`;
+
+const StarIcon = styled(FaStar)`
+  color: #ffd700;
+  font-size: 0.9rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
   }
 `;
 

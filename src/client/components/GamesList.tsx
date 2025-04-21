@@ -59,6 +59,7 @@ export const GamesList = ({
             name={game.name}
             released={game.released}
             image={game.background_image}
+            rating={game.rating}
           />
         ))}
       </GamesGrid>
