@@ -157,24 +157,24 @@ const GameModal = ({ gameId, onModalClose }: GameModalProps) => {
             </MediaSection>
 
             <InfoGrid>
-              {game.rating && (
+              {game.rating && game.rating > 0 ? (
                 <InfoCard>
                   <CardTitle>Rating</CardTitle>
                   <RatingWrapper>
-                    <StarRating rating={game.rating || 0} />
+                    <StarRating rating={game.rating} />
                     <RatingNumber>{game.rating.toFixed(1)}</RatingNumber>
                   </RatingWrapper>
                 </InfoCard>
-              )}
+              ) : null}
 
-              {game.platforms && game.platforms.length > 0 && (
+              {game.platforms && game.platforms.length > 0 ? (
                 <InfoCard>
                   <CardTitle>Platforms</CardTitle>
                   <PlatformWrapper>
                     <PlatformIcons platforms={game.platforms} />
                   </PlatformWrapper>
                 </InfoCard>
-              )}
+              ) : null}
 
               {hasGenres(game) && (
                 <InfoCard>
