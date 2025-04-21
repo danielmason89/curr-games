@@ -27,7 +27,6 @@ const StarRating = ({ rating }: StarRatingProps) => {
 
   return (
     <StyledStars>
-      <h3>Rating ({rating.toFixed(1)})</h3>
       <div className='stars'>{getStars()}</div>
     </StyledStars>
   );

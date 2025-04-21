@@ -15,7 +15,6 @@ interface PlatformIconsProps {
 const PlatformIcons = ({ platforms }: PlatformIconsProps) => {
   return (
     <StyledPlatforms>
-      <h3>Platforms</h3>
       <IconsContainer>
         {platforms &&
           Array.from(
