@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router';
 import { Provider } from 'react-redux';
 import { store } from './store';
-import SearchResults from '@/client/pages/SearchResults';
+import Games from '@/client/pages/Games';
 import RootLayout from './layouts/RootLayout';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
@@ -21,7 +21,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <Routes>
           <Route element={<RootLayout />}>
             <Route index element={<Home />} />
-            <Route path='search' element={<SearchResults />} />
+            <Route path='games' element={<Games />} />
             <Route path='games/:id' element={<GameDetails />} />
             <Route path='*' element={<NotFound />} />
           </Route>

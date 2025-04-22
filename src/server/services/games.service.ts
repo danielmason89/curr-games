@@ -27,6 +27,8 @@ import {
 } from '@/server/lib/schemas.js';
 import logger from '@/server/config/logger.js';
 import type { GameQueryParams } from '@/shared/utils.js';
+import { filterNsfwGames } from '../utils/nsfwFilter.js';
+import { SEARCH_PAGE_SIZE } from '@/client/services/gamesApi.js';
 
 /**
  * Fetches a list of games from the RAWG API.
@@ -53,8 +55,17 @@ import type { GameQueryParams } from '@/shared/utils.js';
 export const getGames = async (params?: GameQueryParams) => {
   try {
     logger.info('Fetching games from RAWG API', { params });
-    const queryString = params
-      ? `?${new URLSearchParams(params as Record<string, string>)}`
+    const pageSize = params?.page_size
+      ? Number(params.page_size)
+      : SEARCH_PAGE_SIZE;
+
+    const adjustedParams = {
+      ...params,
+      page_size: pageSize * 1.5, // Fetch extra games to account for NSFW filtering
+    };
+
+    const queryString = adjustedParams
+      ? `?${new URLSearchParams(adjustedParams as unknown as Record<string, string>)}`
       : '';
 
     const response = await rawgApi.get<unknown>(`/games${queryString}`);
@@ -84,10 +95,18 @@ export const getGames = async (params?: GameQueryParams) => {
       throw new Error('Invalid API response format');
     }
 
+    // Filter NSFW games
+    const filteredGames = filterNsfwGames(result.data);
+
+    // Adjust the results to match the requested page size
+    if (filteredGames.results.length > pageSize) {
+      filteredGames.results = filteredGames.results.slice(0, pageSize);
+    }
+
     logger.info(
-      `Successfully fetched ${result.data.results.length} games of ${result.data.count} games`
+      `Successfully fetched ${filteredGames.results.length} non-NSFW games of ${result.data.count} total games`
     );
-    return result.data;
+    return filteredGames;
   } catch (error) {
     // Log unexpected errors
     if (error instanceof Error) {
