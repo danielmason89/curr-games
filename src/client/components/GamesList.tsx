@@ -4,7 +4,6 @@ import type { GamesResponse } from '@/shared/types';
 import { SerializedError } from '@reduxjs/toolkit';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import Game from './Game';
-import { motion } from 'framer-motion';
 import { GameListSkeleton } from './GameListSkeleton';
 import ErrorMessage from './ErrorMessage';
 import { Link } from 'react-router';
@@ -49,10 +48,7 @@ export const GamesList = ({
   }
 
   return (
-    <GameListContainer
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}>
+    <GameListContainer>
       {title && (
         <TitleContainer>
           <SectionTitle>{title}</SectionTitle>
@@ -77,7 +73,7 @@ export const GamesList = ({
   );
 };
 
-export const GameListContainer = styled(motion.div)`
+export const GameListContainer = styled.div`
   max-width: 1400px;
   margin: 0 auto;
   margin-top: 2rem;
@@ -135,7 +131,7 @@ export const SectionTitle = styled.h2`
   }
 `;
 
-export const GamesGrid = styled(motion.ul)`
+export const GamesGrid = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.75rem;

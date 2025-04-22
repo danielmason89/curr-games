@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 // Styling and Animation
 import styled from 'styled-components';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { FaStar } from 'react-icons/fa';
 
 import { smallImage } from '../utils/image';
-import { popUp } from '../utils/animations';
 
 import type { Game as GameType } from '@/shared/types';
 import GameModal from './GameModal';
@@ -46,17 +45,11 @@ const Game = ({ name, released, image: image, id, rating }: GameProps) => {
 
   return (
     <>
-      <StyledGame
-        variants={popUp}
-        initial='hidden'
-        animate='show'
-        exit='exit'
-        layoutId={stringPathId}>
+      <StyledGame>
         <CardButton onClick={handleOpenModal}>
           <ImageContainer>
             {!imageLoaded && <ImageSkeleton />}
             <GameImage
-              layoutId={`image ${stringPathId}`}
               src={smallImage(image ?? '', 640)}
               alt={name}
               onLoad={handleImageLoad}
@@ -65,7 +58,7 @@ const Game = ({ name, released, image: image, id, rating }: GameProps) => {
             <Overlay />
           </ImageContainer>
           <CardContent>
-            <motion.h3 layoutId={`title ${stringPathId}`}>{name}</motion.h3>
+            <h3>{name}</h3>
             <MetaInfoContainer>
               <ReleaseDateTag>{formattedDate}</ReleaseDateTag>
               {rating && rating > 0 ? (
@@ -91,7 +84,15 @@ const Game = ({ name, released, image: image, id, rating }: GameProps) => {
   );
 };
 
-const StyledGame = styled(motion.li)`
+// Define GameImage first so StyledGame can reference it
+const GameImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+`;
+
+const StyledGame = styled.li`
   height: 100%;
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -102,8 +103,8 @@ const StyledGame = styled(motion.li)`
 
   &:hover {
     box-shadow: var(--shadow-md);
-
-    img {
+    /* Apply scale transform to the GameImage when StyledGame is hovered */
+    ${GameImage} {
       transform: scale(1.05);
     }
   }
@@ -132,13 +133,6 @@ const ImageContainer = styled.div`
   @media (max-width: 768px) {
     height: 150px;
   }
-`;
-
-const GameImage = styled(motion.img)`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
 `;
 
 const Overlay = styled.div`

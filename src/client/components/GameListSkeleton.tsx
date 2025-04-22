@@ -29,7 +29,7 @@ interface GameListSkeletonProps {
 }
 
 export const GameListSkeleton = ({ title }: GameListSkeletonProps) => {
-  const skeletonItems = Array.from({ length: 12 }, (_, index) => (
+  const skeletonItems = Array.from({ length: 6 }, (_, index) => (
     <GameSkeleton key={`skeleton-${index}`} />
   ));
 

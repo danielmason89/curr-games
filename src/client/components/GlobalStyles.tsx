@@ -67,8 +67,6 @@ const GlobalStyles = createGlobalStyle`
 }
 
 html{
-    scroll-behavior: smooth;
-    
     &::-webkit-scrollbar{
         width: 0.5rem;
     }
