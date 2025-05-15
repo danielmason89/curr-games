@@ -20,7 +20,7 @@
     "dotenv": "^16.4.7",
     "express": "^5.0.1",
     "express-rate-limit": "^7.5.0",
-    "framer-motion": "^12.4.7",
+    "framer-motion": "^12.7.5",
     "helmet": "^8.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
