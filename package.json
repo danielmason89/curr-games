@@ -31,7 +31,7 @@
     "styled-components": "^6.1.15",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
-    "vite-express": "*",
+    "vite-express": "0.21.1",
     "web-vitals": "^4.2.4",
     "winston": "^3.17.0",
     "zod": "^3.24.2"
